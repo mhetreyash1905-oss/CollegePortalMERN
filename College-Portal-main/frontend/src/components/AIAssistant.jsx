@@ -85,14 +85,14 @@ const AIAssistant = () => {
       {!isOpen && (
         <button
           onClick={() => setIsOpen(true)}
-          className="fixed bottom-6 right-6 bg-gradient-to-r from-primary-500 to-cyan-500 text-white p-4 rounded-full shadow-lg hover:shadow-2xl hover:scale-110 transition-all duration-300 z-50 group"
+          className="fixed bottom-6 right-6 bg-primary-600 text-white p-4 rounded-full shadow-lg hover:shadow-2xl hover:scale-110 transition-all duration-300 z-50 group"
         >
           <MessageCircle className="w-6 h-6" />
           <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center animate-pulse">
             1
           </span>
           <div className="absolute bottom-full right-0 mb-2 hidden group-hover:block">
-            <div className="bg-dark-700 text-slate-200 text-sm px-3 py-2 rounded-lg whitespace-nowrap shadow-lg">
+            <div className="bg-gray-100 dark:bg-dark-700 text-gray-900 dark:text-gray-900 dark:text-gray-200 text-sm px-3 py-2 rounded-lg whitespace-nowrap shadow-lg">
               AI Assistant
               <div className="absolute top-full right-4 -mt-1">
                 <div className="border-4 border-transparent border-t-dark-700"></div>
@@ -107,11 +107,11 @@ const AIAssistant = () => {
         <div
           className={`fixed ${
             isMinimized ? 'bottom-6 right-6 w-80' : 'bottom-6 right-6 w-96'
-          } bg-dark-800 border border-dark-700 rounded-2xl shadow-2xl z-50 flex flex-col transition-all duration-300`}
+          } bg-white dark:bg-dark-800 border border-gray-200 dark:border-dark-700 rounded-2xl shadow-2xl z-50 flex flex-col transition-all duration-300`}
           style={{ height: isMinimized ? '60px' : '600px' }}
         >
           {/* Header */}
-          <div className="bg-gradient-to-r from-primary-500 to-cyan-500 p-4 rounded-t-2xl flex items-center justify-between">
+          <div className="bg-primary-600 p-4 rounded-t-2xl flex items-center justify-between">
             <div className="flex items-center gap-3">
               <div className="bg-white/20 p-2 rounded-full">
                 <Bot className="w-5 h-5 text-white" />
@@ -152,8 +152,8 @@ const AIAssistant = () => {
                     <div
                       className={`max-w-[75%] ${
                         message.sender === 'user'
-                          ? 'bg-gradient-to-r from-primary-500 to-cyan-500 text-white'
-                          : 'bg-dark-700 text-slate-200'
+                          ? 'bg-primary-600 text-white'
+                          : 'bg-gray-100 dark:bg-dark-700 text-gray-900 dark:text-gray-900 dark:text-gray-200'
                       } rounded-2xl px-4 py-3 shadow-md`}
                     >
                       {message.sender === 'bot' && (
@@ -177,7 +177,7 @@ const AIAssistant = () => {
                 {/* Typing Indicator */}
                 {isTyping && (
                   <div className="flex justify-start">
-                    <div className="bg-dark-700 rounded-2xl px-4 py-3 shadow-md">
+                    <div className="bg-gray-100 dark:bg-dark-700 rounded-2xl px-4 py-3 shadow-md">
                       <div className="flex items-center gap-2">
                         <Bot className="w-4 h-4 text-cyan-400" />
                         <div className="flex gap-1">
@@ -194,19 +194,19 @@ const AIAssistant = () => {
               </div>
 
               {/* Input */}
-              <div className="p-4 border-t border-dark-700">
+              <div className="p-4 border-t border-gray-200 dark:border-dark-700">
                 <form onSubmit={handleSendMessage} className="flex gap-2">
                   <input
                     type="text"
                     value={inputMessage}
                     onChange={(e) => setInputMessage(e.target.value)}
                     placeholder="Type your message..."
-                    className="flex-1 bg-dark-700 border border-dark-600 text-slate-200 placeholder-slate-400 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary-500 transition-all"
+                    className="flex-1 bg-gray-100 dark:bg-dark-700 border border-gray-300 dark:border-dark-600 text-gray-900 dark:text-gray-900 dark:text-gray-200 placeholder-slate-400 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-primary-500 transition-all"
                   />
                   <button
                     type="submit"
                     disabled={!inputMessage.trim()}
-                    className="bg-gradient-to-r from-primary-500 to-cyan-500 text-white p-3 rounded-xl hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 hover:scale-105"
+                    className="bg-primary-600 text-white p-3 rounded-xl hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 hover:scale-105"
                   >
                     <Send className="w-5 h-5" />
                   </button>

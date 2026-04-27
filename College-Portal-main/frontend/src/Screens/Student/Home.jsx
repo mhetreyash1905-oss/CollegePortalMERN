@@ -75,7 +75,7 @@ const Home = () => {
     if (isLoading) {
       return (
         <div className="flex justify-center items-center h-96">
-          <div className="text-gray-400">Loading...</div>
+          <div className="text-gray-600 dark:text-gray-400">Loading...</div>
         </div>
       );
     }
@@ -139,7 +139,7 @@ const Home = () => {
   };
 
   return (
-    <div className="flex min-h-screen bg-dark-900">
+    <div className="flex min-h-screen bg-gray-50 dark:bg-dark-900">
       <Sidebar
         menuItems={MENU_ITEMS}
         selectedMenu={selectedMenu}

@@ -108,7 +108,7 @@ const StudentFinder = () => {
         <form onSubmit={searchStudents} className="flex items-center">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 w-[90%] mx-auto">
             <div>
-              <label className="block text-sm font-medium text-slate-200 mb-1">
+              <label className="block text-sm font-medium text-gray-900 dark:text-gray-200 mb-1">
                 Enrollment Number
               </label>
               <input
@@ -116,13 +116,13 @@ const StudentFinder = () => {
                 name="enrollmentNo"
                 value={searchParams.enrollmentNo}
                 onChange={handleInputChange}
-                className="w-full px-4 py-2 border-2 border-dark-600 rounded-md bg-dark-700 text-slate-200 focus:outline-none focus:ring-2 focus:ring-primary-500"
+                className="w-full px-4 py-2 border-2 border-gray-300 dark:border-dark-600 rounded-md bg-gray-100 dark:bg-dark-700 text-gray-900 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500"
                 placeholder="Enter enrollment number"
               />
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-slate-200 mb-1">
+              <label className="block text-sm font-medium text-gray-900 dark:text-gray-200 mb-1">
                 Name
               </label>
               <input
@@ -130,20 +130,20 @@ const StudentFinder = () => {
                 name="name"
                 value={searchParams.name}
                 onChange={handleInputChange}
-                className="w-full px-4 py-2 border-2 border-dark-600 rounded-md bg-dark-700 text-slate-200 focus:outline-none focus:ring-2 focus:ring-primary-500"
+                className="w-full px-4 py-2 border-2 border-gray-300 dark:border-dark-600 rounded-md bg-gray-100 dark:bg-dark-700 text-gray-900 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500"
                 placeholder="Enter student name"
               />
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-slate-200 mb-1">
+              <label className="block text-sm font-medium text-gray-900 dark:text-gray-200 mb-1">
                 Semester
               </label>
               <select
                 name="semester"
                 value={searchParams.semester}
                 onChange={handleInputChange}
-                className="w-full px-4 py-2 border-2 border-dark-600 rounded-md bg-dark-700 text-slate-200 focus:outline-none focus:ring-2 focus:ring-primary-500"
+                className="w-full px-4 py-2 border-2 border-gray-300 dark:border-dark-600 rounded-md bg-gray-100 dark:bg-dark-700 text-gray-900 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500"
               >
                 <option value="">Select Semester</option>
                 {[1, 2, 3, 4, 5, 6, 7, 8].map((sem) => (
@@ -155,14 +155,14 @@ const StudentFinder = () => {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-slate-200 mb-1">
+              <label className="block text-sm font-medium text-gray-900 dark:text-gray-200 mb-1">
                 Branch
               </label>
               <select
                 name="branch"
                 value={searchParams.branch}
                 onChange={handleInputChange}
-                className="w-full px-4 py-2 border-2 border-dark-600 rounded-md bg-dark-700 text-slate-200 focus:outline-none focus:ring-2 focus:ring-primary-500"
+                className="w-full px-4 py-2 border-2 border-gray-300 dark:border-dark-600 rounded-md bg-gray-100 dark:bg-dark-700 text-gray-900 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500"
               >
                 <option value="">Select Branch</option>
                 {branches?.map((branch) => (
@@ -186,7 +186,7 @@ const StudentFinder = () => {
         </form>
 
         {!hasSearched && (
-          <div className="text-center mt-8 text-slate-200 flex flex-col items-center justify-center my-10 glass-effect p-10 rounded-3xl mx-auto w-[40%]">
+          <div className="text-center mt-8 text-gray-900 dark:text-gray-200 flex flex-col items-center justify-center my-10 glass-effect p-10 rounded-3xl mx-auto w-[40%]">
             <img
               src="/assets/filter.svg"
               alt="Select filters"
@@ -204,7 +204,7 @@ const StudentFinder = () => {
           <div className="mt-8">
             <h2 className="text-xl font-semibold mb-4 text-primary-300">Search Results</h2>
             <div className="overflow-x-auto">
-              <div className="bg-dark-800 rounded-2xl shadow-md overflow-hidden border border-dark-700">
+              <div className="bg-white dark:bg-dark-800 rounded-2xl shadow-md overflow-hidden border border-gray-200 dark:border-dark-700">
               <table className="min-w-full">
                 <thead>
                   <tr className="bg-primary-500 text-white">
@@ -259,7 +259,7 @@ const StudentFinder = () => {
 
         {showModal && selectedStudent && (
           <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-            <div className="bg-dark-800 rounded-lg p-8 max-w-4xl w-full max-h-[90vh] overflow-y-auto border border-dark-700">
+            <div className="bg-white dark:bg-dark-800 rounded-lg p-8 max-w-4xl w-full max-h-[90vh] overflow-y-auto border border-gray-200 dark:border-dark-700">
               <div className="flex justify-between items-start mb-6">
                 <h2 className="text-2xl font-bold">Student Details</h2>
                 <CustomButton

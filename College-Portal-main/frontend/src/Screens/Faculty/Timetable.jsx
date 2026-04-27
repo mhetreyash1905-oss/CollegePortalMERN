@@ -41,14 +41,14 @@ const AddTimetableModal = ({
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-      <div className="bg-dark-800 p-8 rounded-lg w-[500px] max-h-[90vh] overflow-y-auto border border-dark-700">
+      <div className="bg-white dark:bg-dark-800 p-8 rounded-lg w-[500px] max-h-[90vh] overflow-y-auto border border-gray-200 dark:border-dark-700">
         <div className="flex justify-between items-center mb-6">
           <h2 className="text-xl font-semibold">
             {initialData ? "Edit Timetable" : "Add New Timetable"}
           </h2>
           <button
             onClick={onClose}
-            className="text-slate-400 hover:text-slate-200"
+            className="text-slate-400 hover:text-gray-900 dark:text-gray-200"
           >
             <IoMdClose className="text-3xl" />
           </button>
@@ -62,7 +62,7 @@ const AddTimetableModal = ({
               onChange={(e) =>
                 setFormData({ ...formData, branch: e.target.value })
               }
-              className="w-full px-4 py-2 border-2 border-dark-600 rounded-md bg-dark-700 text-slate-200 focus:outline-none focus:ring-2 focus:ring-primary-500"
+              className="w-full px-4 py-2 border-2 border-gray-300 dark:border-dark-600 rounded-md bg-gray-100 dark:bg-dark-700 text-gray-900 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500"
             >
               <option value="">Select Branch</option>
               {branches?.map((b) => (
@@ -80,7 +80,7 @@ const AddTimetableModal = ({
               onChange={(e) =>
                 setFormData({ ...formData, semester: e.target.value })
               }
-              className="w-full px-4 py-2 border-2 border-dark-600 rounded-md bg-dark-700 text-slate-200 focus:outline-none focus:ring-2 focus:ring-primary-500"
+              className="w-full px-4 py-2 border-2 border-gray-300 dark:border-dark-600 rounded-md bg-gray-100 dark:bg-dark-700 text-gray-900 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500"
             >
               <option value="">Select Semester</option>
               {[1, 2, 3, 4, 5, 6, 7, 8].map((sem) => (
@@ -266,7 +266,7 @@ const Timetable = () => {
       </div>
 
       <div className="mt-8 w-full overflow-x-auto">
-        <div className="bg-dark-800 rounded-2xl shadow-md overflow-hidden border border-dark-700">
+        <div className="bg-white dark:bg-dark-800 rounded-2xl shadow-md overflow-hidden border border-gray-200 dark:border-dark-700">
         <table className="text-sm min-w-full">
           <thead>
             <tr className="bg-primary-500 text-white">

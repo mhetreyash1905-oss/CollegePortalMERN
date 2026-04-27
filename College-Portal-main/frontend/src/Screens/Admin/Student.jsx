@@ -326,7 +326,7 @@ const Student = () => {
             <h3 className="text-xl font-bold text-primary-300 mb-6">Search Students</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               <div>
-                <label className="block text-sm font-semibold text-slate-200 mb-2">
+                <label className="block text-sm font-semibold text-gray-900 dark:text-gray-200 mb-2">
                   Enrollment Number
                 </label>
                 <input
@@ -340,7 +340,7 @@ const Student = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-semibold text-slate-200 mb-2">
+                <label className="block text-sm font-semibold text-gray-900 dark:text-gray-200 mb-2">
                   Name
                 </label>
                 <input
@@ -354,7 +354,7 @@ const Student = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-semibold text-slate-200 mb-2">
+                <label className="block text-sm font-semibold text-gray-900 dark:text-gray-200 mb-2">
                   Semester
                 </label>
                 <select
@@ -373,7 +373,7 @@ const Student = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-semibold text-slate-200 mb-2">
+                <label className="block text-sm font-semibold text-gray-900 dark:text-gray-200 mb-2">
                   Branch
                 </label>
                 <select
@@ -410,7 +410,7 @@ const Student = () => {
                 alt="Select filters"
                 className="w-64 h-64 mb-4 mx-auto opacity-80"
               />
-              <p className="text-slate-200 text-lg font-medium">Please select at least one filter to search students</p>
+              <p className="text-gray-900 dark:text-gray-200 text-lg font-medium">Please select at least one filter to search students</p>
             </div>
           )}
 
@@ -421,7 +421,7 @@ const Student = () => {
           {students && students.length > 0 && (
             <div className="mt-8 animate-fade-in">
               <h2 className="text-2xl font-bold text-primary-300 mb-6">Search Results</h2>
-              <div className="bg-dark-800 rounded-2xl overflow-hidden shadow-md border border-dark-700">
+              <div className="bg-white dark:bg-dark-800 rounded-2xl overflow-hidden shadow-md border border-gray-200 dark:border-dark-700">
                 <div className="overflow-x-auto">
                   <table className="min-w-full">
                     <thead>
@@ -437,9 +437,9 @@ const Student = () => {
                         </th>
                       </tr>
                     </thead>
-                    <tbody className="bg-dark-800">
+                    <tbody className="bg-white dark:bg-dark-800">
                       {students.map((student) => (
-                        <tr key={student._id} className="hover:bg-dark-700 transition-colors duration-200 border-b border-dark-700">
+                        <tr key={student._id} className="hover:bg-gray-100 dark:bg-dark-700 transition-colors duration-200 border-b border-gray-200 dark:border-dark-700">
                           <td className="px-6 py-4">
                             <img
                               src={`${process.env.REACT_APP_MEDIA_LINK}/${student.profile}`}
@@ -451,20 +451,20 @@ const Student = () => {
                               }}
                             />
                           </td>
-                          <td className="px-6 py-4 font-medium text-slate-100">
+                          <td className="px-6 py-4 font-medium text-gray-900 dark:text-gray-100">
                             {student.firstName} {student.middleName}{" "}
                             {student.lastName}
                           </td>
-                          <td className="px-6 py-4 text-slate-200">
+                          <td className="px-6 py-4 text-gray-900 dark:text-gray-200">
                             {student.enrollmentNo}
                           </td>
-                          <td className="px-6 py-4 text-slate-200">
+                          <td className="px-6 py-4 text-gray-900 dark:text-gray-200">
                             {student.semester}
                           </td>
-                          <td className="px-6 py-4 text-slate-200">
+                          <td className="px-6 py-4 text-gray-900 dark:text-gray-200">
                             {student.branchId?.name}
                           </td>
-                          <td className="px-6 py-4 text-slate-200">{student.email}</td>
+                          <td className="px-6 py-4 text-gray-900 dark:text-gray-200">{student.email}</td>
                           <td className="px-6 py-4 text-center">
                             <div className="flex justify-center gap-3">
                               <button
@@ -521,7 +521,7 @@ const Student = () => {
             >
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-sm font-semibold text-slate-200 mb-2">
+                  <label className="block text-sm font-semibold text-gray-900 dark:text-gray-200 mb-2">
                     First Name
                   </label>
                   <input
@@ -530,13 +530,13 @@ const Student = () => {
                     onChange={(e) =>
                       handleFormInputChange("firstName", e.target.value)
                     }
-                    className="w-full px-4 py-3 border-2 border-dark-600 rounded-xl focus:ring-2 focus:ring-primary-500 bg-dark-700 text-slate-200 transition-all duration-300"
+                    className="w-full px-4 py-3 border-2 border-gray-300 dark:border-dark-600 rounded-xl focus:ring-2 focus:ring-primary-500 bg-gray-100 dark:bg-dark-700 text-gray-900 dark:text-gray-200 transition-all duration-300"
                     required
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-slate-200 mb-2">
+                  <label className="block text-sm font-semibold text-gray-900 dark:text-gray-200 mb-2">
                     Middle Name
                   </label>
                   <input
@@ -545,12 +545,12 @@ const Student = () => {
                     onChange={(e) =>
                       handleFormInputChange("middleName", e.target.value)
                     }
-                    className="w-full px-4 py-3 border-2 border-dark-600 rounded-xl focus:ring-2 focus:ring-primary-500 bg-dark-700 text-slate-200 transition-all duration-300"
+                    className="w-full px-4 py-3 border-2 border-gray-300 dark:border-dark-600 rounded-xl focus:ring-2 focus:ring-primary-500 bg-gray-100 dark:bg-dark-700 text-gray-900 dark:text-gray-200 transition-all duration-300"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-slate-200 mb-2">
+                  <label className="block text-sm font-semibold text-gray-900 dark:text-gray-200 mb-2">
                     Last Name
                   </label>
                   <input
@@ -559,13 +559,13 @@ const Student = () => {
                     onChange={(e) =>
                       handleFormInputChange("lastName", e.target.value)
                     }
-                    className="w-full px-4 py-3 border-2 border-dark-600 rounded-xl focus:ring-2 focus:ring-primary-500 bg-dark-700 text-slate-200 transition-all duration-300"
+                    className="w-full px-4 py-3 border-2 border-gray-300 dark:border-dark-600 rounded-xl focus:ring-2 focus:ring-primary-500 bg-gray-100 dark:bg-dark-700 text-gray-900 dark:text-gray-200 transition-all duration-300"
                     required
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-slate-200 mb-2">
+                  <label className="block text-sm font-semibold text-gray-900 dark:text-gray-200 mb-2">
                     Phone
                   </label>
                   <input
@@ -574,13 +574,13 @@ const Student = () => {
                     onChange={(e) =>
                       handleFormInputChange("phone", e.target.value)
                     }
-                    className="w-full px-4 py-3 border-2 border-dark-600 rounded-xl focus:ring-2 focus:ring-primary-500 bg-dark-700 text-slate-200 transition-all duration-300"
+                    className="w-full px-4 py-3 border-2 border-gray-300 dark:border-dark-600 rounded-xl focus:ring-2 focus:ring-primary-500 bg-gray-100 dark:bg-dark-700 text-gray-900 dark:text-gray-200 transition-all duration-300"
                     required
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-slate-200 mb-2">
+                  <label className="block text-sm font-semibold text-gray-900 dark:text-gray-200 mb-2">
                     Semester
                   </label>
                   <select
@@ -588,7 +588,7 @@ const Student = () => {
                     onChange={(e) =>
                       handleFormInputChange("semester", e.target.value)
                     }
-                    className="w-full px-4 py-3 border-2 border-dark-600 rounded-xl focus:ring-2 focus:ring-primary-500 bg-dark-700 text-slate-200 transition-all duration-300"
+                    className="w-full px-4 py-3 border-2 border-gray-300 dark:border-dark-600 rounded-xl focus:ring-2 focus:ring-primary-500 bg-gray-100 dark:bg-dark-700 text-gray-900 dark:text-gray-200 transition-all duration-300"
                     required
                   >
                     <option value="">Select Semester</option>
@@ -601,7 +601,7 @@ const Student = () => {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-slate-200 mb-2">
+                  <label className="block text-sm font-semibold text-gray-900 dark:text-gray-200 mb-2">
                     Branch
                   </label>
                   <select
@@ -609,7 +609,7 @@ const Student = () => {
                     onChange={(e) =>
                       handleFormInputChange("branchId", e.target.value)
                     }
-                    className="w-full px-4 py-3 border-2 border-dark-600 rounded-xl focus:ring-2 focus:ring-primary-500 bg-dark-700 text-slate-200 transition-all duration-300"
+                    className="w-full px-4 py-3 border-2 border-gray-300 dark:border-dark-600 rounded-xl focus:ring-2 focus:ring-primary-500 bg-gray-100 dark:bg-dark-700 text-gray-900 dark:text-gray-200 transition-all duration-300"
                     required
                   >
                     <option value="">Select Branch</option>
@@ -622,7 +622,7 @@ const Student = () => {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-slate-200 mb-2">
+                  <label className="block text-sm font-semibold text-gray-900 dark:text-gray-200 mb-2">
                     Gender
                   </label>
                   <select
@@ -630,7 +630,7 @@ const Student = () => {
                     onChange={(e) =>
                       handleFormInputChange("gender", e.target.value)
                     }
-                    className="w-full px-4 py-3 border-2 border-dark-600 rounded-xl focus:ring-2 focus:ring-primary-500 bg-dark-700 text-slate-200 transition-all duration-300"
+                    className="w-full px-4 py-3 border-2 border-gray-300 dark:border-dark-600 rounded-xl focus:ring-2 focus:ring-primary-500 bg-gray-100 dark:bg-dark-700 text-gray-900 dark:text-gray-200 transition-all duration-300"
                     required
                   >
                     <option value="">Select Gender</option>
@@ -641,7 +641,7 @@ const Student = () => {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-slate-200 mb-2">
+                  <label className="block text-sm font-semibold text-gray-900 dark:text-gray-200 mb-2">
                     Date of Birth
                   </label>
                   <input
@@ -650,13 +650,13 @@ const Student = () => {
                     onChange={(e) =>
                       handleFormInputChange("dob", e.target.value)
                     }
-                    className="w-full px-4 py-3 border-2 border-dark-600 rounded-xl focus:ring-2 focus:ring-primary-500 bg-dark-700 text-slate-200 transition-all duration-300"
+                    className="w-full px-4 py-3 border-2 border-gray-300 dark:border-dark-600 rounded-xl focus:ring-2 focus:ring-primary-500 bg-gray-100 dark:bg-dark-700 text-gray-900 dark:text-gray-200 transition-all duration-300"
                     required
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-slate-200 mb-2">
+                  <label className="block text-sm font-semibold text-gray-900 dark:text-gray-200 mb-2">
                     Blood Group
                   </label>
                   <select
@@ -664,7 +664,7 @@ const Student = () => {
                     onChange={(e) =>
                       handleFormInputChange("bloodGroup", e.target.value)
                     }
-                    className="w-full px-4 py-3 border-2 border-dark-600 rounded-xl focus:ring-2 focus:ring-primary-500 bg-dark-700 text-slate-200 transition-all duration-300"
+                    className="w-full px-4 py-3 border-2 border-gray-300 dark:border-dark-600 rounded-xl focus:ring-2 focus:ring-primary-500 bg-gray-100 dark:bg-dark-700 text-gray-900 dark:text-gray-200 transition-all duration-300"
                     required
                   >
                     <option value="">Select Blood Group</option>
@@ -680,19 +680,19 @@ const Student = () => {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-slate-200 mb-2">
+                  <label className="block text-sm font-semibold text-gray-900 dark:text-gray-200 mb-2">
                     Profile Photo
                   </label>
                   <input
                     type="file"
                     onChange={(e) => setFile(e.target.files[0])}
-                    className="w-full px-4 py-3 border-2 border-dark-600 rounded-xl focus:ring-2 focus:ring-primary-500 bg-dark-700 text-slate-200 transition-all duration-300"
+                    className="w-full px-4 py-3 border-2 border-gray-300 dark:border-dark-600 rounded-xl focus:ring-2 focus:ring-primary-500 bg-gray-100 dark:bg-dark-700 text-gray-900 dark:text-gray-200 transition-all duration-300"
                     accept="image/*"
                   />
                 </div>
 
                 <div className="md:col-span-2">
-                  <label className="block text-sm font-semibold text-slate-200 mb-2">
+                  <label className="block text-sm font-semibold text-gray-900 dark:text-gray-200 mb-2">
                     Address
                   </label>
                   <input
@@ -701,13 +701,13 @@ const Student = () => {
                     onChange={(e) =>
                       handleFormInputChange("address", e.target.value)
                     }
-                    className="w-full px-4 py-3 border-2 border-dark-600 rounded-xl focus:ring-2 focus:ring-primary-500 bg-dark-700 text-slate-200 transition-all duration-300"
+                    className="w-full px-4 py-3 border-2 border-gray-300 dark:border-dark-600 rounded-xl focus:ring-2 focus:ring-primary-500 bg-gray-100 dark:bg-dark-700 text-gray-900 dark:text-gray-200 transition-all duration-300"
                     required
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-slate-200 mb-2">
+                  <label className="block text-sm font-semibold text-gray-900 dark:text-gray-200 mb-2">
                     City
                   </label>
                   <input
@@ -716,13 +716,13 @@ const Student = () => {
                     onChange={(e) =>
                       handleFormInputChange("city", e.target.value)
                     }
-                    className="w-full px-4 py-3 border-2 border-dark-600 rounded-xl focus:ring-2 focus:ring-primary-500 bg-dark-700 text-slate-200 transition-all duration-300"
+                    className="w-full px-4 py-3 border-2 border-gray-300 dark:border-dark-600 rounded-xl focus:ring-2 focus:ring-primary-500 bg-gray-100 dark:bg-dark-700 text-gray-900 dark:text-gray-200 transition-all duration-300"
                     required
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-slate-200 mb-2">
+                  <label className="block text-sm font-semibold text-gray-900 dark:text-gray-200 mb-2">
                     State
                   </label>
                   <input
@@ -731,13 +731,13 @@ const Student = () => {
                     onChange={(e) =>
                       handleFormInputChange("state", e.target.value)
                     }
-                    className="w-full px-4 py-3 border-2 border-dark-600 rounded-xl focus:ring-2 focus:ring-primary-500 bg-dark-700 text-slate-200 transition-all duration-300"
+                    className="w-full px-4 py-3 border-2 border-gray-300 dark:border-dark-600 rounded-xl focus:ring-2 focus:ring-primary-500 bg-gray-100 dark:bg-dark-700 text-gray-900 dark:text-gray-200 transition-all duration-300"
                     required
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-slate-200 mb-2">
+                  <label className="block text-sm font-semibold text-gray-900 dark:text-gray-200 mb-2">
                     Pincode
                   </label>
                   <input
@@ -746,13 +746,13 @@ const Student = () => {
                     onChange={(e) =>
                       handleFormInputChange("pincode", e.target.value)
                     }
-                    className="w-full px-4 py-3 border-2 border-dark-600 rounded-xl focus:ring-2 focus:ring-primary-500 bg-dark-700 text-slate-200 transition-all duration-300"
+                    className="w-full px-4 py-3 border-2 border-gray-300 dark:border-dark-600 rounded-xl focus:ring-2 focus:ring-primary-500 bg-gray-100 dark:bg-dark-700 text-gray-900 dark:text-gray-200 transition-all duration-300"
                     required
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-slate-200 mb-2">
+                  <label className="block text-sm font-semibold text-gray-900 dark:text-gray-200 mb-2">
                     Country
                   </label>
                   <input
@@ -761,7 +761,7 @@ const Student = () => {
                     onChange={(e) =>
                       handleFormInputChange("country", e.target.value)
                     }
-                    className="w-full px-4 py-3 border-2 border-dark-600 rounded-xl focus:ring-2 focus:ring-primary-500 bg-dark-700 text-slate-200 transition-all duration-300"
+                    className="w-full px-4 py-3 border-2 border-gray-300 dark:border-dark-600 rounded-xl focus:ring-2 focus:ring-primary-500 bg-gray-100 dark:bg-dark-700 text-gray-900 dark:text-gray-200 transition-all duration-300"
                     required
                   />
                 </div>
@@ -772,7 +772,7 @@ const Student = () => {
                   </h3>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div>
-                      <label className="block text-sm font-semibold text-slate-200 mb-2">
+                      <label className="block text-sm font-semibold text-gray-900 dark:text-gray-200 mb-2">
                         Name
                       </label>
                       <input
@@ -781,13 +781,13 @@ const Student = () => {
                         onChange={(e) =>
                           handleEmergencyContactChange("name", e.target.value)
                         }
-                        className="w-full px-4 py-3 border-2 border-dark-600 rounded-xl focus:ring-2 focus:ring-primary-500 bg-dark-700 text-slate-200 transition-all duration-300"
+                        className="w-full px-4 py-3 border-2 border-gray-300 dark:border-dark-600 rounded-xl focus:ring-2 focus:ring-primary-500 bg-gray-100 dark:bg-dark-700 text-gray-900 dark:text-gray-200 transition-all duration-300"
                         required
                       />
                     </div>
 
                     <div>
-                      <label className="block text-sm font-semibold text-slate-200 mb-2">
+                      <label className="block text-sm font-semibold text-gray-900 dark:text-gray-200 mb-2">
                         Relationship
                       </label>
                       <input
@@ -799,13 +799,13 @@ const Student = () => {
                             e.target.value
                           )
                         }
-                        className="w-full px-4 py-3 border-2 border-dark-600 rounded-xl focus:ring-2 focus:ring-primary-500 bg-dark-700 text-slate-200 transition-all duration-300"
+                        className="w-full px-4 py-3 border-2 border-gray-300 dark:border-dark-600 rounded-xl focus:ring-2 focus:ring-primary-500 bg-gray-100 dark:bg-dark-700 text-gray-900 dark:text-gray-200 transition-all duration-300"
                         required
                       />
                     </div>
 
                     <div>
-                      <label className="block text-sm font-semibold text-slate-200 mb-2">
+                      <label className="block text-sm font-semibold text-gray-900 dark:text-gray-200 mb-2">
                         Phone
                       </label>
                       <input
@@ -814,7 +814,7 @@ const Student = () => {
                         onChange={(e) =>
                           handleEmergencyContactChange("phone", e.target.value)
                         }
-                        className="w-full px-4 py-3 border-2 border-dark-600 rounded-xl focus:ring-2 focus:ring-primary-500 bg-dark-700 text-slate-200 transition-all duration-300"
+                        className="w-full px-4 py-3 border-2 border-gray-300 dark:border-dark-600 rounded-xl focus:ring-2 focus:ring-primary-500 bg-gray-100 dark:bg-dark-700 text-gray-900 dark:text-gray-200 transition-all duration-300"
                         required
                       />
                     </div>
@@ -838,7 +838,7 @@ const Student = () => {
                   <button
                     type="button"
                     onClick={resetForm}
-                    className="bg-dark-700 hover:bg-dark-600 text-slate-200 font-semibold py-3 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-md"
+                    className="bg-gray-100 dark:bg-dark-700 hover:bg-gray-200 dark:bg-dark-600 text-gray-900 dark:text-gray-200 font-semibold py-3 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-md"
                   >
                     Cancel
                   </button>

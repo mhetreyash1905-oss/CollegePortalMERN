@@ -10,10 +10,10 @@ const DeleteConfirm = ({ isOpen, onClose, onConfirm, message }) => {
       onClick={onClose}
     >
       <div
-        className="bg-dark-800 rounded-lg p-8 max-w-sm w-full mx-4 transform transition-all duration-300 ease-in-out animate-fade-in border border-dark-700"
+        className="bg-white dark:bg-dark-800 rounded-lg p-8 max-w-sm w-full mx-4 transform transition-all duration-300 ease-in-out animate-fade-in border border-gray-200 dark:border-dark-700"
         onClick={(e) => e.stopPropagation()}
       >
-        <h3 className="text-lg font-medium mb-4 text-slate-100">Confirm Delete</h3>
+        <h3 className="text-lg font-medium mb-4 text-gray-900 dark:text-gray-100">Confirm Delete</h3>
 
         <p className="text-slate-300 mb-6">
           {message ||

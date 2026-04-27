@@ -17,12 +17,12 @@ const USER_TYPES = {
 
 const LoginForm = ({ selected, onSubmit, formData, setFormData }) => (
   <form
-    className="w-full p-8 bg-dark-800 border border-dark-700 rounded-3xl shadow-2xl animate-scale-in"
+    className="w-full p-8 bg-white dark:bg-dark-800 border border-gray-200 dark:border-dark-700 rounded-3xl shadow-2xl animate-scale-in"
     onSubmit={onSubmit}
   >
     <div className="mb-6">
       <label
-        className="block text-gray-300 text-sm font-semibold mb-3"
+        className="block text-gray-700 dark:text-gray-300 text-sm font-semibold mb-3"
         htmlFor="email"
       >
         {selected} Email
@@ -31,7 +31,7 @@ const LoginForm = ({ selected, onSubmit, formData, setFormData }) => (
         type="email"
         id="email"
         required
-        className="w-full px-5 py-3 text-sm bg-dark-700 border-2 border-dark-600 rounded-xl focus:outline-none input-glow text-white placeholder-gray-500 transition-all duration-300 hover:border-dark-500"
+        className="w-full px-5 py-3 text-sm bg-gray-100 dark:bg-dark-700 border-2 border-gray-300 dark:border-dark-600 rounded-xl focus:outline-none input-glow text-gray-900 dark:text-white placeholder-gray-500 transition-all duration-300 hover:border-dark-500"
         value={formData.email}
         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
         placeholder={`Enter your ${selected.toLowerCase()} email`}
@@ -39,7 +39,7 @@ const LoginForm = ({ selected, onSubmit, formData, setFormData }) => (
     </div>
     <div className="mb-6">
       <label
-        className="block text-gray-300 text-sm font-semibold mb-3"
+        className="block text-gray-700 dark:text-gray-300 text-sm font-semibold mb-3"
         htmlFor="password"
       >
         Password
@@ -48,7 +48,7 @@ const LoginForm = ({ selected, onSubmit, formData, setFormData }) => (
         type="password"
         id="password"
         required
-        className="w-full px-5 py-3 text-sm bg-dark-700 border-2 border-dark-600 rounded-xl focus:outline-none input-glow text-white placeholder-gray-500 transition-all duration-300 hover:border-dark-500"
+        className="w-full px-5 py-3 text-sm bg-gray-100 dark:bg-dark-700 border-2 border-gray-300 dark:border-dark-600 rounded-xl focus:outline-none input-glow text-gray-900 dark:text-white placeholder-gray-500 transition-all duration-300 hover:border-dark-500"
         value={formData.password}
         onChange={(e) => setFormData({ ...formData, password: e.target.value })}
         placeholder="Enter your password"
@@ -80,8 +80,8 @@ const UserTypeSelector = ({ selected, onSelect }) => (
         onClick={() => onSelect(type)}
         className={`px-8 py-3 text-sm font-semibold rounded-2xl transition-all duration-300 transform ${
           selected === type
-            ? "bg-gradient-to-r from-primary-500 to-accent-500 text-white shadow-xl scale-110"
-            : "bg-dark-800 border border-dark-700 text-gray-300 hover:scale-105 hover:bg-dark-700"
+            ? "bg-primary-600 text-white shadow-xl scale-110"
+            : "bg-white dark:bg-dark-800 border border-gray-200 dark:border-dark-700 text-gray-600 dark:text-gray-300 hover:scale-105 hover:bg-gray-100 dark:bg-dark-700"
         }`}
       >
         {type}
@@ -153,16 +153,16 @@ const Login = () => {
   }, [type]);
 
   return (
-    <div className="min-h-screen bg-dark-900 relative overflow-hidden flex items-center justify-center px-4">
+    <div className="min-h-screen bg-gray-50 dark:bg-dark-900 relative overflow-hidden flex items-center justify-center px-4">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-primary-500/20 to-accent-500/20"></div>
+        <div className="absolute top-0 left-0 w-full h-full bg-primary-100 dark:bg-primary-900/20"></div>
       </div>
       
       {/* Back to Home Button */}
       <Link
         to="/"
-        className="absolute top-6 left-6 px-6 py-2.5 bg-dark-700 hover:bg-dark-600 border border-dark-600 rounded-xl text-sm font-semibold text-white transition-all duration-300 flex items-center gap-2 z-10"
+        className="absolute top-6 left-6 px-6 py-2.5 bg-gray-100 dark:bg-dark-700 hover:bg-gray-200 dark:bg-dark-600 border border-gray-300 dark:border-dark-600 rounded-xl text-sm font-semibold text-gray-900 dark:text-white transition-all duration-300 flex items-center gap-2 z-10"
       >
         <span>←</span> Back to Home
       </Link>
@@ -172,7 +172,7 @@ const Login = () => {
           <h1 className="text-5xl font-bold gradient-text mb-3 animate-slide-down">
             {selected} Login
           </h1>
-          <p className="text-gray-400 text-lg">Welcome back! Please login to continue</p>
+          <p className="text-gray-600 dark:text-gray-400 text-lg">Welcome back! Please login to continue</p>
         </div>
         
         <UserTypeSelector selected={selected} onSelect={handleUserTypeSelect} />

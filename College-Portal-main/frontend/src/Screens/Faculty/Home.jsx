@@ -107,7 +107,7 @@ const Home = () => {
   };
 
   return (
-    <div className="flex min-h-screen bg-dark-900">
+    <div className="flex min-h-screen bg-gray-50 dark:bg-dark-900">
       <Sidebar
         menuItems={MENU_ITEMS}
         selectedMenu={selectedMenu}

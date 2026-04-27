@@ -1,32 +1,45 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  darkMode: "class",
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
       colors: {
         primary: {
-          50: '#f0f9ff',
-          100: '#e0f2fe',
-          200: '#bae6fd',
-          300: '#7dd3fc',
-          400: '#38bdf8',
-          500: '#3b82f6',
-          600: '#2563eb',
-          700: '#1d4ed8',
-          800: '#1e40af',
-          900: '#1e3a8a',
+          50: '#F4F5F0',  // Cream
+          100: '#E2E6E9',
+          200: '#C5CDD3',
+          300: '#A8B4BE',
+          400: '#8A9CA8',
+          500: '#6D8393',
+          600: '#4A708B', // Steel Blue
+          700: '#3D5A70',
+          800: '#2A3C4D',
+          900: '#1A293B', // Dark Navy
+        },
+        secondary: {
+          50: '#F0F7FA',
+          100: '#DCE9F0',
+          200: '#B9D3E1',
+          300: '#96BDD2',
+          400: '#7BADC7', // Light Steel Blue
+          500: '#5F97B5',
+          600: '#4A808F', // Teal
+          700: '#3D6A77',
+          800: '#30545F',
+          900: '#233E47',
         },
         accent: {
-          50: '#faf5ff',
-          100: '#f3e8ff',
-          200: '#e9d5ff',
-          300: '#d8b4fe',
-          400: '#c084fc',
-          500: '#a855f7',
-          600: '#9333ea',
-          700: '#7e22ce',
-          800: '#6b21a8',
-          900: '#581c87',
+          50: '#FAF7FB',
+          100: '#F2EAF4',
+          200: '#EBDDF0',
+          300: '#E4CFEB',
+          400: '#DDC2E7',
+          500: '#D8B4E2', // Lavender
+          600: '#BD9DC6',
+          700: '#A387AB',
+          800: '#88718E',
+          900: '#6E5C73',
         },
         dark: {
           50: '#f8fafc',
@@ -40,13 +53,43 @@ module.exports = {
           800: '#0f1419',
           900: '#0a0d12',
           950: '#000000',
-        }
-      },
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-        'mesh-gradient': 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-        'aurora': 'linear-gradient(45deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #4facfe 75%, #00f2fe 100%)',
+        },
+        success: {
+          50: '#F0FDF4',
+          100: '#DCFCE7',
+          200: '#BBF7D0',
+          300: '#86EFAC',
+          400: '#4ADE80',
+          500: '#22C55E',
+          600: '#16A34A',
+          700: '#15803D',
+          800: '#166534',
+          900: '#14532D',
+        },
+        warning: {
+          50: '#FFFBEB',
+          100: '#FEF3C7',
+          200: '#FDE68A',
+          300: '#FCD34D',
+          400: '#FBBF24',
+          500: '#F59E0B',
+          600: '#D97706',
+          700: '#B45309',
+          800: '#92400E',
+          900: '#78350F',
+        },
+        info: {
+          50: '#EFF6FF',
+          100: '#DBEAFE',
+          200: '#BFDBFE',
+          300: '#93C5FD',
+          400: '#60A5FA',
+          500: '#3B82F6',
+          600: '#2563EB',
+          700: '#1D4ED8',
+          800: '#1E40AF',
+          900: '#1E3A8A',
+        },
       },
       animation: {
         'float': 'float 6s ease-in-out infinite',

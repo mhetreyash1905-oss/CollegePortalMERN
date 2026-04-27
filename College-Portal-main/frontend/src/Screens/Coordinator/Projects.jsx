@@ -121,8 +121,8 @@ const Projects = ({ societyId }) => {
         </button>
       </div>
 
-      <div className="bg-dark-800 border border-dark-700 rounded-2xl overflow-hidden">
-        <div className="p-4 border-b border-dark-700 text-slate-200 font-semibold">Project List</div>
+      <div className="bg-white dark:bg-dark-800 border border-gray-200 dark:border-dark-700 rounded-2xl overflow-hidden">
+        <div className="p-4 border-b border-gray-200 dark:border-dark-700 text-gray-900 dark:text-gray-200 font-semibold">Project List</div>
 
         {loading ? (
           <div className="p-6 text-slate-400">Loading...</div>
@@ -133,7 +133,7 @@ const Projects = ({ societyId }) => {
             {items.map((p) => (
               <div key={p._id} className="p-4 flex items-start justify-between gap-4">
                 <div>
-                  <div className="text-slate-200 font-semibold">{p.title}</div>
+                  <div className="text-gray-900 dark:text-gray-200 font-semibold">{p.title}</div>
                   <div className="text-sm text-slate-400">
                     {p.link ? (
                       <a className="text-primary-400 hover:underline" href={p.link} target="_blank" rel="noreferrer">
@@ -147,13 +147,13 @@ const Projects = ({ societyId }) => {
                 <div className="flex items-center gap-2">
                   <button
                     onClick={() => startEdit(p)}
-                    className="px-3 py-1.5 rounded-xl bg-dark-700 hover:bg-dark-600 text-slate-200 text-xs"
+                    className="px-3 py-1.5 rounded-xl bg-gray-100 dark:bg-dark-700 hover:bg-gray-200 dark:bg-dark-600 text-gray-900 dark:text-gray-200 text-xs"
                   >
                     Edit
                   </button>
                   <button
                     onClick={() => requestDelete(p._id)}
-                    className="px-3 py-1.5 rounded-xl bg-dark-700 hover:bg-dark-600 text-red-300 text-xs"
+                    className="px-3 py-1.5 rounded-xl bg-gray-100 dark:bg-dark-700 hover:bg-gray-200 dark:bg-dark-600 text-red-300 text-xs"
                   >
                     Delete
                   </button>
@@ -176,10 +176,10 @@ const Projects = ({ societyId }) => {
 
       {open && (
         <div className="fixed inset-0 z-50 bg-black/60 flex items-center justify-center p-4">
-          <div className="w-full max-w-2xl bg-dark-800 border border-dark-700 rounded-2xl overflow-hidden">
-            <div className="flex items-center justify-between p-4 border-b border-dark-700">
-              <div className="text-slate-200 font-semibold">{title}</div>
-              <button onClick={() => setOpen(false)} className="text-slate-400 hover:text-slate-200">
+          <div className="w-full max-w-2xl bg-white dark:bg-dark-800 border border-gray-200 dark:border-dark-700 rounded-2xl overflow-hidden">
+            <div className="flex items-center justify-between p-4 border-b border-gray-200 dark:border-dark-700">
+              <div className="text-gray-900 dark:text-gray-200 font-semibold">{title}</div>
+              <button onClick={() => setOpen(false)} className="text-slate-400 hover:text-gray-900 dark:text-gray-200">
                 ✕
               </button>
             </div>
@@ -188,7 +188,7 @@ const Projects = ({ societyId }) => {
               <div>
                 <label className="block text-xs text-slate-400 mb-1">Title *</label>
                 <input
-                  className="w-full px-3 py-2 rounded-xl bg-dark-700 border border-dark-600 text-white"
+                  className="w-full px-3 py-2 rounded-xl bg-gray-100 dark:bg-dark-700 border border-gray-300 dark:border-dark-600 text-white"
                   value={form.title}
                   onChange={(e) => setForm((prev) => ({ ...prev, title: e.target.value }))}
                   required
@@ -198,7 +198,7 @@ const Projects = ({ societyId }) => {
               <div>
                 <label className="block text-xs text-slate-400 mb-1">Link</label>
                 <input
-                  className="w-full px-3 py-2 rounded-xl bg-dark-700 border border-dark-600 text-white"
+                  className="w-full px-3 py-2 rounded-xl bg-gray-100 dark:bg-dark-700 border border-gray-300 dark:border-dark-600 text-white"
                   value={form.link}
                   onChange={(e) => setForm((prev) => ({ ...prev, link: e.target.value }))}
                   placeholder="https://..."
@@ -208,7 +208,7 @@ const Projects = ({ societyId }) => {
               <div>
                 <label className="block text-xs text-slate-400 mb-1">Description</label>
                 <textarea
-                  className="w-full px-3 py-2 rounded-xl bg-dark-700 border border-dark-600 text-white"
+                  className="w-full px-3 py-2 rounded-xl bg-gray-100 dark:bg-dark-700 border border-gray-300 dark:border-dark-600 text-white"
                   rows={3}
                   value={form.description}
                   onChange={(e) => setForm((prev) => ({ ...prev, description: e.target.value }))}
@@ -219,7 +219,7 @@ const Projects = ({ societyId }) => {
                 <button
                   type="button"
                   onClick={() => setOpen(false)}
-                  className="px-4 py-2 rounded-xl bg-dark-700 hover:bg-dark-600 text-slate-200"
+                  className="px-4 py-2 rounded-xl bg-gray-100 dark:bg-dark-700 hover:bg-gray-200 dark:bg-dark-600 text-gray-900 dark:text-gray-200"
                 >
                   Cancel
                 </button>

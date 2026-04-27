@@ -231,6 +231,58 @@ const seedData = async () => {
         },
         password: studentPassword,
       },
+      {
+        enrollmentNo: 2303001,
+        firstName: "Ananya",
+        middleName: "S",
+        lastName: "Gupta",
+        email: "ananya.gupta@student.college.edu",
+        phone: "9000000004",
+        semester: 5,
+        branchId: branchById.ME._id,
+        gender: "female",
+        dob: new Date("2004-07-19"),
+        address: "Bopal",
+        city: "Ahmedabad",
+        state: "Gujarat",
+        pincode: "380058",
+        country: "India",
+        profile: "student-ananya.jpg",
+        status: "active",
+        bloodGroup: "AB+",
+        emergencyContact: {
+          name: "Suresh Gupta",
+          relationship: "Father",
+          phone: "9000000094",
+        },
+        password: studentPassword,
+      },
+      {
+        enrollmentNo: 2301003,
+        firstName: "Siddharth",
+        middleName: "R",
+        lastName: "Verma",
+        email: "siddharth.verma@student.college.edu",
+        phone: "9000000005",
+        semester: 3,
+        branchId: branchById.CSE._id,
+        gender: "male",
+        dob: new Date("2005-01-14"),
+        address: "Paldi",
+        city: "Ahmedabad",
+        state: "Gujarat",
+        pincode: "380007",
+        country: "India",
+        profile: "student-siddharth.jpg",
+        status: "active",
+        bloodGroup: "O-",
+        emergencyContact: {
+          name: "Rajesh Verma",
+          relationship: "Father",
+          phone: "9000000095",
+        },
+        password: studentPassword,
+      },
     ]);
 
     const alumni = await AlumniDetail.create([
@@ -257,6 +309,19 @@ const seedData = async () => {
         yearPassedOut: 2021,
         branch: "ECE",
         bio: "Interested in chip design and embedded systems.",
+        status: "active",
+        password: alumniPassword,
+      },
+      {
+        firstName: "Rahul",
+        lastName: "Desai",
+        email: "rahul.desai@alumni.college.edu",
+        profile: "alumni-rahul.jpg",
+        company: "Tesla",
+        position: "Mechanical Design Engineer",
+        yearPassedOut: 2020,
+        branch: "ME",
+        bio: "Passionate about electric vehicle design and manufacturing.",
         status: "active",
         password: alumniPassword,
       },
@@ -576,11 +641,16 @@ const seedData = async () => {
     ]);
 
     console.log("\n=== Seed Complete ===");
-    console.log("Admin login:", admin.email, "/", adminPassword);
-    console.log("Faculty login:", faculty[0].email, "/", facultyPassword);
-    console.log("Student login:", students[0].email, "/", studentPassword);
-    console.log("Alumni login:", alumni[0].email, "/", alumniPassword);
-    console.log("Coordinator login:", coordinators[0].email, "/", coordinatorPassword);
+    console.log("\n--- 10 Cross-Communication IDs ---");
+    console.log("\nStudents (5):");
+    students.forEach((s, i) => console.log(`  ${i+1}. ${s.firstName} ${s.lastName} | ${s.email} | password: ${studentPassword}`));
+    console.log("\nAlumni (3):");
+    alumni.forEach((a, i) => console.log(`  ${i+1}. ${a.firstName} ${a.lastName} | ${a.email} | password: ${alumniPassword}`));
+    console.log("\nFaculty (2):");
+    faculty.forEach((f, i) => console.log(`  ${i+1}. ${f.firstName} ${f.lastName} | ${f.email} | password: ${facultyPassword}`));
+    console.log("\n--- Other Accounts ---");
+    console.log("Admin:", admin.email, "/", adminPassword);
+    console.log("Coordinators:", coordinators[0].email, "/", coordinatorPassword);
     console.log("=====================\n");
   } catch (error) {
     console.error("Error while seeding:", error);

@@ -55,7 +55,7 @@ const ViewMarks = () => {
       <div className="flex justify-between items-center w-full mb-6">
         <Heading title="View Marks" />
         <div className="flex items-center gap-4">
-          <label className="text-sm font-medium text-slate-200">Semester:</label>
+          <label className="text-sm font-medium text-gray-900 dark:text-gray-200">Semester:</label>
           <select
             value={selectedSemester || ""}
             onChange={handleSemesterChange}
@@ -71,10 +71,10 @@ const ViewMarks = () => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
-        <div className="bg-dark-800 rounded-2xl shadow-md border border-dark-700 p-6">
+        <div className="bg-white dark:bg-dark-800 rounded-2xl shadow-md border border-gray-200 dark:border-dark-700 p-6">
           <h2 className="text-xl font-semibold mb-4">Mid Term Marks</h2>
           {dataLoading ? (
-            <p className="text-slate-200">Loading...</p>
+            <p className="text-gray-900 dark:text-gray-200">Loading...</p>
           ) : midTermMarks.length > 0 ? (
             <div className="space-y-4">
               {midTermMarks.map((mark) => (
@@ -87,7 +87,7 @@ const ViewMarks = () => {
                       <p className="font-medium text-gray-800">
                         {mark.subjectId.name}
                       </p>
-                      <p className="text-sm text-slate-200">
+                      <p className="text-sm text-gray-900 dark:text-gray-200">
                         {mark.examId.name}
                       </p>
                     </div>
@@ -95,7 +95,7 @@ const ViewMarks = () => {
                       <p className="text-lg font-semibold text-blue-600">
                         {mark.marksObtained}
                       </p>
-                      <p className="text-sm text-slate-200">
+                      <p className="text-sm text-gray-900 dark:text-gray-200">
                         out of {mark.examId.totalMarks}
                       </p>
                     </div>
@@ -104,14 +104,14 @@ const ViewMarks = () => {
               ))}
             </div>
           ) : (
-            <p className="text-slate-200">No mid term marks available</p>
+            <p className="text-gray-900 dark:text-gray-200">No mid term marks available</p>
           )}
         </div>
 
-        <div className="bg-dark-800 rounded-2xl shadow-md border border-dark-700 p-6">
+        <div className="bg-white dark:bg-dark-800 rounded-2xl shadow-md border border-gray-200 dark:border-dark-700 p-6">
           <h2 className="text-xl font-semibold mb-4">End Term Marks</h2>
           {dataLoading ? (
-            <p className="text-slate-200">Loading...</p>
+            <p className="text-gray-900 dark:text-gray-200">Loading...</p>
           ) : endTermMarks.length > 0 ? (
             <div className="space-y-4">
               {endTermMarks.map((mark) => (
@@ -124,7 +124,7 @@ const ViewMarks = () => {
                       <p className="font-medium text-gray-800">
                         {mark.subjectId.name}
                       </p>
-                      <p className="text-sm text-slate-200">
+                      <p className="text-sm text-gray-900 dark:text-gray-200">
                         {mark.examId.name}
                       </p>
                     </div>
@@ -132,7 +132,7 @@ const ViewMarks = () => {
                       <p className="text-lg font-semibold text-blue-600">
                         {mark.marksObtained}
                       </p>
-                      <p className="text-sm text-slate-200">
+                      <p className="text-sm text-gray-900 dark:text-gray-200">
                         out of {mark.examId.totalMarks}
                       </p>
                     </div>
@@ -141,7 +141,7 @@ const ViewMarks = () => {
               ))}
             </div>
           ) : (
-            <p className="text-slate-200">No end term marks available</p>
+            <p className="text-gray-900 dark:text-gray-200">No end term marks available</p>
           )}
         </div>
       </div>

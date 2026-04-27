@@ -243,9 +243,9 @@ const Notice = () => {
       {/* Modal UI */}
       {showAddModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-          <div className="bg-dark-800 rounded-lg w-[500px] border border-dark-700 max-h-[90vh] overflow-y-auto">
+          <div className="bg-white dark:bg-dark-800 rounded-lg w-[500px] border border-gray-200 dark:border-dark-700 max-h-[90vh] overflow-y-auto">
             <div className="flex justify-between items-center p-6 border-b">
-              <h2 className="text-xl font-semibold text-slate-100">
+              <h2 className="text-xl font-semibold text-gray-900 dark:text-gray-100">
                 {editingNotice ? "Edit Notice" : "Add New Notice"}
               </h2>
               <button
@@ -253,7 +253,7 @@ const Notice = () => {
                   setShowAddModal(false);
                   setEditingNotice(null);
                 }}
-                className="text-slate-400 hover:text-slate-200"
+                className="text-slate-400 hover:text-gray-900 dark:text-gray-200"
               >
                 <IoMdClose className="text-3xl" />
               </button>
@@ -261,7 +261,7 @@ const Notice = () => {
 
             <form onSubmit={handleSubmitNotice} className="p-6 space-y-4">
               <div>
-                <label className="block text-sm font-medium text-slate-200 mb-2">
+                <label className="block text-sm font-medium text-gray-900 dark:text-gray-200 mb-2">
                   Notice Title
                 </label>
                 <input
@@ -270,12 +270,12 @@ const Notice = () => {
                   onChange={(e) =>
                     setFormData({ ...formData, title: e.target.value })
                   }
-                  className="w-full px-4 py-2 border-2 border-dark-600 rounded-md bg-dark-700 text-slate-200 focus:outline-none focus:ring-2 focus:ring-primary-500"
+                  className="w-full px-4 py-2 border-2 border-gray-300 dark:border-dark-600 rounded-md bg-gray-100 dark:bg-dark-700 text-gray-900 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-slate-200 mb-2">
+                <label className="block text-sm font-medium text-gray-900 dark:text-gray-200 mb-2">
                   Notice Description
                 </label>
                 <textarea
@@ -284,12 +284,12 @@ const Notice = () => {
                   onChange={(e) =>
                     setFormData({ ...formData, description: e.target.value })
                   }
-                  className="w-full px-4 py-2 border-2 border-dark-600 rounded-md bg-dark-700 text-slate-200 focus:outline-none focus:ring-2 focus:ring-primary-500"
+                  className="w-full px-4 py-2 border-2 border-gray-300 dark:border-dark-600 rounded-md bg-gray-100 dark:bg-dark-700 text-gray-900 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-slate-200 mb-2">
+                <label className="block text-sm font-medium text-gray-900 dark:text-gray-200 mb-2">
                   Notice Link (Optional)
                 </label>
                 <input
@@ -298,12 +298,12 @@ const Notice = () => {
                   onChange={(e) =>
                     setFormData({ ...formData, link: e.target.value })
                   }
-                  className="w-full px-4 py-2 border-2 border-dark-600 rounded-md bg-dark-700 text-slate-200 focus:outline-none focus:ring-2 focus:ring-primary-500"
+                  className="w-full px-4 py-2 border-2 border-gray-300 dark:border-dark-600 rounded-md bg-gray-100 dark:bg-dark-700 text-gray-900 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-slate-200 mb-2">
+                <label className="block text-sm font-medium text-gray-900 dark:text-gray-200 mb-2">
                   Type Of Notice
                 </label>
                 <select
@@ -311,7 +311,7 @@ const Notice = () => {
                   onChange={(e) =>
                     setFormData({ ...formData, type: e.target.value })
                   }
-                  className="w-full px-4 py-2 border-2 border-dark-600 rounded-md bg-dark-700 text-slate-200 focus:outline-none focus:ring-2 focus:ring-primary-500"
+                  className="w-full px-4 py-2 border-2 border-gray-300 dark:border-dark-600 rounded-md bg-gray-100 dark:bg-dark-700 text-gray-900 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500"
                 >
                   <option value="">Select Type</option>
                   <option value="student">Student</option>

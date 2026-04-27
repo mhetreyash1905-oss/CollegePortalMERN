@@ -114,8 +114,8 @@ const Alumni = () => {
         </button>
       </div>
 
-      <div className="bg-dark-800 border border-dark-700 rounded-2xl overflow-hidden">
-        <div className="p-4 border-b border-dark-700 text-slate-200 font-semibold">
+      <div className="bg-white dark:bg-dark-800 border border-gray-200 dark:border-dark-700 rounded-2xl overflow-hidden">
+        <div className="p-4 border-b border-gray-200 dark:border-dark-700 text-gray-900 dark:text-gray-200 font-semibold">
           Alumni List
         </div>
         {loading ? (
@@ -127,7 +127,7 @@ const Alumni = () => {
             {alumni.map((a) => (
               <div key={a._id} className="p-4 flex items-start justify-between gap-4">
                 <div>
-                  <div className="text-slate-200 font-semibold">
+                  <div className="text-gray-900 dark:text-gray-200 font-semibold">
                     {a.firstName} {a.lastName}
                   </div>
                   <div className="text-sm text-slate-400">{a.email}</div>
@@ -141,7 +141,7 @@ const Alumni = () => {
                   <div className="text-xs text-slate-500">{a.status || "active"}</div>
                   <button
                     onClick={() => requestDelete(a._id)}
-                    className="px-3 py-1.5 rounded-xl bg-dark-700 hover:bg-dark-600 text-slate-200 text-xs"
+                    className="px-3 py-1.5 rounded-xl bg-gray-100 dark:bg-dark-700 hover:bg-gray-200 dark:bg-dark-600 text-gray-900 dark:text-gray-200 text-xs"
                     title="Delete alumni"
                   >
                     Delete
@@ -165,17 +165,17 @@ const Alumni = () => {
 
       {open && (
         <div className="fixed inset-0 z-50 bg-black/60 flex items-center justify-center p-4">
-          <div className="w-full max-w-2xl bg-dark-800 border border-dark-700 rounded-2xl overflow-hidden">
-            <div className="flex items-center justify-between p-4 border-b border-dark-700">
-              <div className="text-slate-200 font-semibold">Add Alumni</div>
-              <button onClick={() => setOpen(false)} className="text-slate-400 hover:text-slate-200">✕</button>
+          <div className="w-full max-w-2xl bg-white dark:bg-dark-800 border border-gray-200 dark:border-dark-700 rounded-2xl overflow-hidden">
+            <div className="flex items-center justify-between p-4 border-b border-gray-200 dark:border-dark-700">
+              <div className="text-gray-900 dark:text-gray-200 font-semibold">Add Alumni</div>
+              <button onClick={() => setOpen(false)} className="text-slate-400 hover:text-gray-900 dark:text-gray-200">✕</button>
             </div>
 
             <form onSubmit={submit} className="p-4 grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
                 <label className="block text-xs text-slate-400 mb-1">First Name *</label>
                 <input
-                  className="w-full px-3 py-2 rounded-xl bg-dark-700 border border-dark-600 text-white"
+                  className="w-full px-3 py-2 rounded-xl bg-gray-100 dark:bg-dark-700 border border-gray-300 dark:border-dark-600 text-white"
                   value={form.firstName}
                   onChange={(e) => setForm((p) => ({ ...p, firstName: e.target.value }))}
                   required
@@ -184,7 +184,7 @@ const Alumni = () => {
               <div>
                 <label className="block text-xs text-slate-400 mb-1">Last Name *</label>
                 <input
-                  className="w-full px-3 py-2 rounded-xl bg-dark-700 border border-dark-600 text-white"
+                  className="w-full px-3 py-2 rounded-xl bg-gray-100 dark:bg-dark-700 border border-gray-300 dark:border-dark-600 text-white"
                   value={form.lastName}
                   onChange={(e) => setForm((p) => ({ ...p, lastName: e.target.value }))}
                   required
@@ -194,7 +194,7 @@ const Alumni = () => {
                 <label className="block text-xs text-slate-400 mb-1">Email *</label>
                 <input
                   type="email"
-                  className="w-full px-3 py-2 rounded-xl bg-dark-700 border border-dark-600 text-white"
+                  className="w-full px-3 py-2 rounded-xl bg-gray-100 dark:bg-dark-700 border border-gray-300 dark:border-dark-600 text-white"
                   value={form.email}
                   onChange={(e) => setForm((p) => ({ ...p, email: e.target.value }))}
                   required
@@ -203,7 +203,7 @@ const Alumni = () => {
               <div>
                 <label className="block text-xs text-slate-400 mb-1">Company</label>
                 <input
-                  className="w-full px-3 py-2 rounded-xl bg-dark-700 border border-dark-600 text-white"
+                  className="w-full px-3 py-2 rounded-xl bg-gray-100 dark:bg-dark-700 border border-gray-300 dark:border-dark-600 text-white"
                   value={form.company}
                   onChange={(e) => setForm((p) => ({ ...p, company: e.target.value }))}
                 />
@@ -211,7 +211,7 @@ const Alumni = () => {
               <div>
                 <label className="block text-xs text-slate-400 mb-1">Position</label>
                 <input
-                  className="w-full px-3 py-2 rounded-xl bg-dark-700 border border-dark-600 text-white"
+                  className="w-full px-3 py-2 rounded-xl bg-gray-100 dark:bg-dark-700 border border-gray-300 dark:border-dark-600 text-white"
                   value={form.position}
                   onChange={(e) => setForm((p) => ({ ...p, position: e.target.value }))}
                 />
@@ -220,7 +220,7 @@ const Alumni = () => {
                 <label className="block text-xs text-slate-400 mb-1">Year Passed Out</label>
                 <input
                   type="number"
-                  className="w-full px-3 py-2 rounded-xl bg-dark-700 border border-dark-600 text-white"
+                  className="w-full px-3 py-2 rounded-xl bg-gray-100 dark:bg-dark-700 border border-gray-300 dark:border-dark-600 text-white"
                   value={form.yearPassedOut}
                   onChange={(e) => setForm((p) => ({ ...p, yearPassedOut: e.target.value }))}
                 />
@@ -228,7 +228,7 @@ const Alumni = () => {
               <div>
                 <label className="block text-xs text-slate-400 mb-1">Branch</label>
                 <input
-                  className="w-full px-3 py-2 rounded-xl bg-dark-700 border border-dark-600 text-white"
+                  className="w-full px-3 py-2 rounded-xl bg-gray-100 dark:bg-dark-700 border border-gray-300 dark:border-dark-600 text-white"
                   value={form.branch}
                   onChange={(e) => setForm((p) => ({ ...p, branch: e.target.value }))}
                 />
@@ -236,7 +236,7 @@ const Alumni = () => {
               <div className="md:col-span-2">
                 <label className="block text-xs text-slate-400 mb-1">Bio</label>
                 <textarea
-                  className="w-full px-3 py-2 rounded-xl bg-dark-700 border border-dark-600 text-white"
+                  className="w-full px-3 py-2 rounded-xl bg-gray-100 dark:bg-dark-700 border border-gray-300 dark:border-dark-600 text-white"
                   rows={3}
                   value={form.bio}
                   onChange={(e) => setForm((p) => ({ ...p, bio: e.target.value }))}
@@ -245,7 +245,7 @@ const Alumni = () => {
               <div className="md:col-span-2">
                 <label className="block text-xs text-slate-400 mb-1">Profile (optional URL or filename)</label>
                 <input
-                  className="w-full px-3 py-2 rounded-xl bg-dark-700 border border-dark-600 text-white"
+                  className="w-full px-3 py-2 rounded-xl bg-gray-100 dark:bg-dark-700 border border-gray-300 dark:border-dark-600 text-white"
                   value={form.profile}
                   onChange={(e) => setForm((p) => ({ ...p, profile: e.target.value }))}
                 />
@@ -255,7 +255,7 @@ const Alumni = () => {
                 <button
                   type="button"
                   onClick={() => setOpen(false)}
-                  className="px-4 py-2 rounded-xl bg-dark-700 hover:bg-dark-600 text-slate-200"
+                  className="px-4 py-2 rounded-xl bg-gray-100 dark:bg-dark-700 hover:bg-gray-200 dark:bg-dark-600 text-gray-900 dark:text-gray-200"
                 >
                   Cancel
                 </button>

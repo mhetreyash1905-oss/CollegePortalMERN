@@ -144,8 +144,8 @@ const Coordinators = () => {
         </button>
       </div>
 
-      <div className="bg-dark-800 border border-dark-700 rounded-2xl overflow-hidden">
-        <div className="p-4 border-b border-dark-700 text-slate-200 font-semibold">Coordinator List</div>
+      <div className="bg-white dark:bg-dark-800 border border-gray-200 dark:border-dark-700 rounded-2xl overflow-hidden">
+        <div className="p-4 border-b border-gray-200 dark:border-dark-700 text-gray-900 dark:text-gray-200 font-semibold">Coordinator List</div>
 
         {loading ? (
           <div className="p-6 text-slate-400">Loading...</div>
@@ -156,7 +156,7 @@ const Coordinators = () => {
             {items.map((c) => (
               <div key={c._id} className="p-4 flex items-start justify-between gap-4">
                 <div>
-                  <div className="text-slate-200 font-semibold">
+                  <div className="text-gray-900 dark:text-gray-200 font-semibold">
                     {c.firstName} {c.lastName}
                   </div>
                   <div className="text-sm text-slate-400">{c.email}</div>
@@ -168,13 +168,13 @@ const Coordinators = () => {
                 <div className="flex items-center gap-2">
                   <button
                     onClick={() => startEdit(c)}
-                    className="px-3 py-1.5 rounded-xl bg-dark-700 hover:bg-dark-600 text-slate-200 text-xs"
+                    className="px-3 py-1.5 rounded-xl bg-gray-100 dark:bg-dark-700 hover:bg-gray-200 dark:bg-dark-600 text-gray-900 dark:text-gray-200 text-xs"
                   >
                     Edit
                   </button>
                   <button
                     onClick={() => requestDelete(c._id)}
-                    className="px-3 py-1.5 rounded-xl bg-dark-700 hover:bg-dark-600 text-red-300 text-xs"
+                    className="px-3 py-1.5 rounded-xl bg-gray-100 dark:bg-dark-700 hover:bg-gray-200 dark:bg-dark-600 text-red-300 text-xs"
                   >
                     Delete
                   </button>
@@ -197,10 +197,10 @@ const Coordinators = () => {
 
       {open && (
         <div className="fixed inset-0 z-50 bg-black/60 flex items-center justify-center p-4">
-          <div className="w-full max-w-2xl bg-dark-800 border border-dark-700 rounded-2xl overflow-hidden">
-            <div className="flex items-center justify-between p-4 border-b border-dark-700">
-              <div className="text-slate-200 font-semibold">{title}</div>
-              <button onClick={() => setOpen(false)} className="text-slate-400 hover:text-slate-200">
+          <div className="w-full max-w-2xl bg-white dark:bg-dark-800 border border-gray-200 dark:border-dark-700 rounded-2xl overflow-hidden">
+            <div className="flex items-center justify-between p-4 border-b border-gray-200 dark:border-dark-700">
+              <div className="text-gray-900 dark:text-gray-200 font-semibold">{title}</div>
+              <button onClick={() => setOpen(false)} className="text-slate-400 hover:text-gray-900 dark:text-gray-200">
                 ✕
               </button>
             </div>
@@ -209,7 +209,7 @@ const Coordinators = () => {
               <div>
                 <label className="block text-xs text-slate-400 mb-1">First Name *</label>
                 <input
-                  className="w-full px-3 py-2 rounded-xl bg-dark-700 border border-dark-600 text-white"
+                  className="w-full px-3 py-2 rounded-xl bg-gray-100 dark:bg-dark-700 border border-gray-300 dark:border-dark-600 text-white"
                   value={form.firstName}
                   onChange={(e) => setForm((p) => ({ ...p, firstName: e.target.value }))}
                   required
@@ -218,7 +218,7 @@ const Coordinators = () => {
               <div>
                 <label className="block text-xs text-slate-400 mb-1">Last Name *</label>
                 <input
-                  className="w-full px-3 py-2 rounded-xl bg-dark-700 border border-dark-600 text-white"
+                  className="w-full px-3 py-2 rounded-xl bg-gray-100 dark:bg-dark-700 border border-gray-300 dark:border-dark-600 text-white"
                   value={form.lastName}
                   onChange={(e) => setForm((p) => ({ ...p, lastName: e.target.value }))}
                   required
@@ -228,7 +228,7 @@ const Coordinators = () => {
                 <label className="block text-xs text-slate-400 mb-1">Email *</label>
                 <input
                   type="email"
-                  className="w-full px-3 py-2 rounded-xl bg-dark-700 border border-dark-600 text-white"
+                  className="w-full px-3 py-2 rounded-xl bg-gray-100 dark:bg-dark-700 border border-gray-300 dark:border-dark-600 text-white"
                   value={form.email}
                   onChange={(e) => setForm((p) => ({ ...p, email: e.target.value }))}
                   required
@@ -238,7 +238,7 @@ const Coordinators = () => {
               <div className="md:col-span-2">
                 <label className="block text-xs text-slate-400 mb-1">Society (one only)</label>
                 <select
-                  className="w-full px-3 py-2 rounded-xl bg-dark-700 border border-dark-600 text-white"
+                  className="w-full px-3 py-2 rounded-xl bg-gray-100 dark:bg-dark-700 border border-gray-300 dark:border-dark-600 text-white"
                   value={form.societyId}
                   onChange={(e) => setForm((p) => ({ ...p, societyId: e.target.value }))}
                 >
@@ -254,7 +254,7 @@ const Coordinators = () => {
               <div className="md:col-span-2">
                 <label className="block text-xs text-slate-400 mb-1">Status</label>
                 <select
-                  className="w-full px-3 py-2 rounded-xl bg-dark-700 border border-dark-600 text-white"
+                  className="w-full px-3 py-2 rounded-xl bg-gray-100 dark:bg-dark-700 border border-gray-300 dark:border-dark-600 text-white"
                   value={form.status}
                   onChange={(e) => setForm((p) => ({ ...p, status: e.target.value }))}
                 >
@@ -267,7 +267,7 @@ const Coordinators = () => {
                 <button
                   type="button"
                   onClick={() => setOpen(false)}
-                  className="px-4 py-2 rounded-xl bg-dark-700 hover:bg-dark-600 text-slate-200"
+                  className="px-4 py-2 rounded-xl bg-gray-100 dark:bg-dark-700 hover:bg-gray-200 dark:bg-dark-600 text-gray-900 dark:text-gray-200"
                 >
                   Cancel
                 </button>

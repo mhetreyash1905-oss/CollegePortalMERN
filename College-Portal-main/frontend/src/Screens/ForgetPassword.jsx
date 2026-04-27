@@ -18,8 +18,8 @@ const UserTypeSelector = ({ selected, onSelect }) => (
         onClick={() => onSelect(type)}
         className={`px-6 py-2.5 text-sm font-semibold rounded-xl transition-all duration-300 ${
           selected === type
-            ? "bg-gradient-to-r from-primary-500 to-accent-500 text-white shadow-lg"
-            : "bg-dark-700 text-slate-200 hover:bg-dark-600 border border-dark-600"
+            ? "bg-primary-600 text-white shadow-lg"
+            : "bg-gray-100 dark:bg-dark-700 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-dark-600 border border-gray-300 dark:border-dark-600"
         }`}
       >
         {type}
@@ -77,10 +77,10 @@ const ForgetPassword = () => {
   };
 
   return (
-    <div className="min-h-screen bg-dark-900 relative overflow-hidden flex items-center justify-center px-4">
+    <div className="min-h-screen bg-gray-50 dark:bg-dark-900 relative overflow-hidden flex items-center justify-center px-4">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-primary-500/20 to-accent-500/20"></div>
+        <div className="absolute top-0 left-0 w-full h-full bg-primary-100 dark:bg-primary-900/20"></div>
       </div>
 
       <div className="relative w-full max-w-[40%] px-6 py-12 animate-fade-in">
@@ -89,12 +89,12 @@ const ForgetPassword = () => {
         </h1>
         <UserTypeSelector selected={selected} onSelect={setSelected} />
         <form
-          className="w-full p-8 bg-dark-800 border border-dark-700 rounded-3xl shadow-2xl animate-slide-down"
+          className="w-full p-8 bg-white dark:bg-dark-800 border border-gray-200 dark:border-dark-700 rounded-3xl shadow-2xl animate-slide-down"
           onSubmit={onSubmit}
         >
           <div className="mb-6">
             <label
-              className="block text-gray-300 text-sm font-semibold mb-3"
+              className="block text-gray-700 dark:text-gray-300 text-sm font-semibold mb-3"
               htmlFor="email"
             >
               {selected} Email
@@ -105,7 +105,7 @@ const ForgetPassword = () => {
               onChange={(e) => setEmail(e.target.value)}
               value={email}
               required
-              className="w-full px-5 py-3 text-sm bg-dark-700 border-2 border-dark-600 rounded-xl focus:outline-none input-glow text-white placeholder-gray-500 transition-all duration-300 hover:border-dark-500"
+              className="w-full px-5 py-3 text-sm bg-gray-100 dark:bg-dark-700 border-2 border-gray-300 dark:border-dark-600 rounded-xl focus:outline-none input-glow text-gray-900 dark:text-white placeholder-gray-500 transition-all duration-300 hover:border-gray-400 dark:hover:border-dark-500"
               placeholder="Enter your email"
             />
           </div>

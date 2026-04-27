@@ -57,9 +57,9 @@ const UpdatePasswordLoggedIn = ({ onClose }) => {
 
   return (
     <section className="w-full h-full flex justify-center items-center bg-black bg-opacity-50 fixed top-0 left-0 z-50">
-      <div className="max-w-md mx-auto mt-8 p-6 bg-dark-800 rounded-lg shadow-md w-[50%] border border-dark-700">
+      <div className="max-w-md mx-auto mt-8 p-6 bg-white dark:bg-dark-800 rounded-lg shadow-md w-[50%] border border-gray-200 dark:border-dark-700">
         <div className="flex justify-between items-center">
-          <h2 className="text-2xl font-semibold mb-6 text-slate-100">Update Password</h2>
+          <h2 className="text-2xl font-semibold mb-6 text-gray-900 dark:text-gray-100">Update Password</h2>
           <CustomButton
             onClick={onClose}
             className="bg-red-500 p-2 rounded-full text-white"
@@ -69,38 +69,38 @@ const UpdatePasswordLoggedIn = ({ onClose }) => {
         </div>
         <form onSubmit={handlePasswordUpdate}>
           <div className="mb-4">
-            <label className="block text-slate-200 text-sm font-bold mb-2">
+            <label className="block text-gray-900 dark:text-gray-200 text-sm font-bold mb-2">
               Current Password
             </label>
             <input
               type="password"
               value={currentPassword}
               onChange={(e) => setCurrentPassword(e.target.value)}
-              className="w-full px-3 py-2 bg-dark-700 border border-dark-600 rounded-lg text-slate-200 focus:outline-none focus:ring-2 focus:ring-primary-500"
+              className="w-full px-3 py-2 bg-gray-100 dark:bg-dark-700 border border-gray-300 dark:border-dark-600 rounded-lg text-gray-900 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500"
               required
             />
           </div>
           <div className="mb-4">
-            <label className="block text-slate-200 text-sm font-bold mb-2">
+            <label className="block text-gray-900 dark:text-gray-200 text-sm font-bold mb-2">
               New Password
             </label>
             <input
               type="password"
               value={newPassword}
               onChange={(e) => setNewPassword(e.target.value)}
-              className="w-full px-3 py-2 bg-dark-700 border border-dark-600 rounded-lg text-slate-200 focus:outline-none focus:ring-2 focus:ring-primary-500"
+              className="w-full px-3 py-2 bg-gray-100 dark:bg-dark-700 border border-gray-300 dark:border-dark-600 rounded-lg text-gray-900 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500"
               required
             />
           </div>
           <div className="mb-6">
-            <label className="block text-slate-200 text-sm font-bold mb-2">
+            <label className="block text-gray-900 dark:text-gray-200 text-sm font-bold mb-2">
               Confirm New Password
             </label>
             <input
               type="password"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
-              className="w-full px-3 py-2 bg-dark-700 border border-dark-600 rounded-lg text-slate-200 focus:outline-none focus:ring-2 focus:ring-primary-500"
+              className="w-full px-3 py-2 bg-gray-100 dark:bg-dark-700 border border-gray-300 dark:border-dark-600 rounded-lg text-gray-900 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500"
               required
             />
           </div>

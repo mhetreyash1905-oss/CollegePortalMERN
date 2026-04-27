@@ -160,14 +160,14 @@ const Branch = () => {
 
       {showAddForm && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-          <div className="bg-dark-800 rounded-lg w-[500px] max-h-[90vh] overflow-y-auto border border-dark-700">
+          <div className="bg-white dark:bg-dark-800 rounded-lg w-[500px] max-h-[90vh] overflow-y-auto border border-gray-200 dark:border-dark-700">
             <div className="flex justify-between items-center p-6 border-b">
-              <h2 className="text-xl font-semibold text-slate-100">
+              <h2 className="text-xl font-semibold text-gray-900 dark:text-gray-100">
                 {isEditing ? "Edit Branch" : "Add New Branch"}
               </h2>
               <button
                 onClick={() => setShowAddForm(false)}
-                className="text-slate-400 hover:text-slate-200"
+                className="text-slate-400 hover:text-gray-900 dark:text-gray-200"
               >
                 <IoMdClose className="text-3xl" />
               </button>
@@ -177,7 +177,7 @@ const Branch = () => {
               <div>
                 <label
                   htmlFor="name"
-                  className="block text-sm font-medium text-slate-200 mb-2"
+                  className="block text-sm font-medium text-gray-900 dark:text-gray-200 mb-2"
                 >
                   Branch Name
                 </label>
@@ -186,14 +186,14 @@ const Branch = () => {
                   id="name"
                   value={data.name}
                   onChange={(e) => setData({ ...data, name: e.target.value })}
-                  className="w-full px-4 py-2 border-2 border-dark-600 rounded-md bg-dark-700 text-slate-200 focus:outline-none focus:ring-2 focus:ring-primary-500"
+                  className="w-full px-4 py-2 border-2 border-gray-300 dark:border-dark-600 rounded-md bg-gray-100 dark:bg-dark-700 text-gray-900 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500"
                 />
               </div>
 
               <div>
                 <label
                   htmlFor="branchId"
-                  className="block text-sm font-medium text-slate-200 mb-2"
+                  className="block text-sm font-medium text-gray-900 dark:text-gray-200 mb-2"
                 >
                   Branch ID
                 </label>
@@ -204,7 +204,7 @@ const Branch = () => {
                   onChange={(e) =>
                     setData({ ...data, branchId: e.target.value })
                   }
-                  className="w-full px-4 py-2 border-2 border-dark-600 rounded-md bg-dark-700 text-slate-200 focus:outline-none focus:ring-2 focus:ring-primary-500"
+                  className="w-full px-4 py-2 border-2 border-gray-300 dark:border-dark-600 rounded-md bg-gray-100 dark:bg-dark-700 text-gray-900 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500"
                 />
               </div>
 
@@ -226,7 +226,7 @@ const Branch = () => {
 
       {!dataLoading && (
         <div className="mt-8 w-full overflow-x-auto">
-          <div className="bg-dark-800 rounded-2xl shadow-md overflow-hidden border border-dark-700">
+          <div className="bg-white dark:bg-dark-800 rounded-2xl shadow-md overflow-hidden border border-gray-200 dark:border-dark-700">
           <table className="text-sm min-w-full">
             <thead>
               <tr className="bg-primary-500 text-white">
@@ -243,7 +243,7 @@ const Branch = () => {
             <tbody>
               {branch && branch.length > 0 ? (
                 branch.map((item, index) => (
-                  <tr key={index} className="border-b border-dark-700 hover:bg-dark-700 text-slate-200">
+                  <tr key={index} className="border-b border-gray-200 dark:border-dark-700 hover:bg-gray-100 dark:bg-dark-700 text-gray-900 dark:text-gray-200">
                     <td className="py-4 px-6">{item.name}</td>
                     <td className="py-4 px-6">{item.branchId}</td>
                     <td className="py-4 px-6">

@@ -213,12 +213,12 @@ const LostAndFound = () => {
             {/* Header */}
             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                 <div>
-                    <h1 className="text-3xl font-bold text-slate-100 mb-2">Lost & Found</h1>
+                    <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-2">Lost & Found</h1>
                     <p className="text-slate-400">Report lost items or claim found items</p>
                 </div>
                 <button
                     onClick={() => setShowReportModal(true)}
-                    className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-primary-500 to-accent-500 hover:from-primary-600 hover:to-accent-600 text-white rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl"
+                    className="flex items-center gap-2 px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl"
                 >
                     <FaPlus />
                     Report Lost Item
@@ -226,7 +226,7 @@ const LostAndFound = () => {
             </div>
 
             {/* Search and Filter */}
-            <div className="bg-dark-800 rounded-2xl p-6 shadow-xl border border-dark-700">
+            <div className="bg-white dark:bg-dark-800 rounded-2xl p-6 shadow-xl border border-gray-200 dark:border-dark-700">
                 <div className="grid md:grid-cols-2 gap-4">
                     <div className="relative">
                         <FaSearch className="absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-400" />
@@ -235,7 +235,7 @@ const LostAndFound = () => {
                             placeholder="Search by item name, description, or location..."
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
-                            className="w-full pl-12 pr-4 py-3 bg-dark-700 border border-dark-600 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:border-primary-500 transition-all"
+                            className="w-full pl-12 pr-4 py-3 bg-gray-100 dark:bg-dark-700 border border-gray-300 dark:border-dark-600 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:border-primary-500 transition-all"
                         />
                     </div>
                     <div className="relative">
@@ -243,7 +243,7 @@ const LostAndFound = () => {
                         <select
                             value={filterCategory}
                             onChange={(e) => setFilterCategory(e.target.value)}
-                            className="w-full pl-12 pr-4 py-3 bg-dark-700 border border-dark-600 rounded-xl text-white focus:outline-none focus:border-primary-500 transition-all appearance-none cursor-pointer"
+                            className="w-full pl-12 pr-4 py-3 bg-gray-100 dark:bg-dark-700 border border-gray-300 dark:border-dark-600 rounded-xl text-white focus:outline-none focus:border-primary-500 transition-all appearance-none cursor-pointer"
                         >
                             {categories.map((cat) => (
                                 <option key={cat} value={cat.toLowerCase()}>
@@ -266,10 +266,10 @@ const LostAndFound = () => {
                     filteredItems.map((item) => (
                         <div
                             key={item._id || item.id}
-                            className="bg-dark-800 border border-dark-700 rounded-2xl overflow-hidden hover:border-primary-500/50 transition-all duration-300 hover:shadow-xl flex flex-col h-full"
+                            className="bg-white dark:bg-dark-800 border border-gray-200 dark:border-dark-700 rounded-2xl overflow-hidden hover:border-primary-500/50 transition-all duration-300 hover:shadow-xl flex flex-col h-full"
                         >
                             {/* Image Section */}
-                            <div className="w-full h-56 overflow-hidden bg-dark-700 flex-shrink-0">
+                            <div className="w-full h-56 overflow-hidden bg-gray-100 dark:bg-dark-700 flex-shrink-0">
                                 {item.imageUrl ? (
                                     <img
                                         src={item.imageUrl}
@@ -330,14 +330,14 @@ const LostAndFound = () => {
                                             <button
                                                 onClick={() => handleMarkClaimed(item)}
                                                 disabled={isLoading}
-                                                className="w-full px-4 py-3 bg-dark-700 hover:bg-dark-600 border border-dark-600 text-white rounded-xl font-semibold transition-all duration-300 disabled:opacity-50"
+                                                className="w-full px-4 py-3 bg-gray-100 dark:bg-dark-700 hover:bg-gray-200 dark:bg-dark-600 border border-gray-300 dark:border-dark-600 text-white rounded-xl font-semibold transition-all duration-300 disabled:opacity-50"
                                             >
                                                 Mark Claimed
                                             </button>
                                         ) : (
                                             <button
                                                 onClick={() => handleClaimClick(item)}
-                                                className="w-full px-4 py-3 bg-gradient-to-r from-primary-500 to-accent-500 hover:from-primary-600 hover:to-accent-600 text-white rounded-xl font-semibold transition-all duration-300"
+                                                className="w-full px-4 py-3 bg-primary-600 hover:bg-primary-700 text-white rounded-xl font-semibold transition-all duration-300"
                                             >
                                                 Claim This Item
                                             </button>
@@ -353,12 +353,12 @@ const LostAndFound = () => {
             {/* Report Item Modal */}
             {showReportModal && (
                 <div className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-                    <div className="bg-dark-800 border border-dark-700 rounded-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto">
-                        <div className="sticky top-0 bg-dark-800 border-b border-dark-700 p-6 flex items-center justify-between">
+                    <div className="bg-white dark:bg-dark-800 border border-gray-200 dark:border-dark-700 rounded-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto">
+                        <div className="sticky top-0 bg-white dark:bg-dark-800 border-b border-gray-200 dark:border-dark-700 p-6 flex items-center justify-between">
                             <h2 className="text-2xl font-bold text-white">Report Lost Item</h2>
                             <button
                                 onClick={() => setShowReportModal(false)}
-                                className="p-2 hover:bg-dark-700 rounded-lg transition-colors"
+                                className="p-2 hover:bg-gray-100 dark:bg-dark-700 rounded-lg transition-colors"
                             >
                                 <FaTimes className="text-slate-400 text-xl" />
                             </button>
@@ -373,7 +373,7 @@ const LostAndFound = () => {
                                     type="text"
                                     value={reportForm.itemName}
                                     onChange={(e) => setReportForm({ ...reportForm, itemName: e.target.value })}
-                                    className="w-full px-4 py-3 bg-dark-700 border border-dark-600 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:border-primary-500"
+                                    className="w-full px-4 py-3 bg-gray-100 dark:bg-dark-700 border border-gray-300 dark:border-dark-600 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:border-primary-500"
                                     placeholder="e.g., iPhone 13 Pro"
                                     required
                                 />
@@ -386,7 +386,7 @@ const LostAndFound = () => {
                                 <select
                                     value={reportForm.category}
                                     onChange={(e) => setReportForm({ ...reportForm, category: e.target.value })}
-                                    className="w-full px-4 py-3 bg-dark-700 border border-dark-600 rounded-xl text-white focus:outline-none focus:border-primary-500"
+                                    className="w-full px-4 py-3 bg-gray-100 dark:bg-dark-700 border border-gray-300 dark:border-dark-600 rounded-xl text-white focus:outline-none focus:border-primary-500"
                                     required
                                 >
                                     {categories.filter(cat => cat !== "All").map((cat) => (
@@ -404,7 +404,7 @@ const LostAndFound = () => {
                                 <textarea
                                     value={reportForm.description}
                                     onChange={(e) => setReportForm({ ...reportForm, description: e.target.value })}
-                                    className="w-full px-4 py-3 bg-dark-700 border border-dark-600 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:border-primary-500 min-h-[100px]"
+                                    className="w-full px-4 py-3 bg-gray-100 dark:bg-dark-700 border border-gray-300 dark:border-dark-600 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:border-primary-500 min-h-[100px]"
                                     placeholder="Provide detailed description of the lost item..."
                                     required
                                 />
@@ -419,7 +419,7 @@ const LostAndFound = () => {
                                         type="date"
                                         value={reportForm.dateLost}
                                         onChange={(e) => setReportForm({ ...reportForm, dateLost: e.target.value })}
-                                        className="w-full px-4 py-3 bg-dark-700 border border-dark-600 rounded-xl text-white focus:outline-none focus:border-primary-500"
+                                        className="w-full px-4 py-3 bg-gray-100 dark:bg-dark-700 border border-gray-300 dark:border-dark-600 rounded-xl text-white focus:outline-none focus:border-primary-500"
                                         required
                                     />
                                 </div>
@@ -432,7 +432,7 @@ const LostAndFound = () => {
                                         type="text"
                                         value={reportForm.locationLost}
                                         onChange={(e) => setReportForm({ ...reportForm, locationLost: e.target.value })}
-                                        className="w-full px-4 py-3 bg-dark-700 border border-dark-600 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:border-primary-500"
+                                        className="w-full px-4 py-3 bg-gray-100 dark:bg-dark-700 border border-gray-300 dark:border-dark-600 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:border-primary-500"
                                         placeholder="e.g., Library 3rd Floor"
                                         required
                                     />
@@ -445,7 +445,7 @@ const LostAndFound = () => {
                                     type="text"
                                     value={reportForm.contactName}
                                     onChange={(e) => setReportForm({ ...reportForm, contactName: e.target.value })}
-                                    className="w-full px-4 py-3 bg-dark-700 border border-dark-600 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:border-primary-500"
+                                    className="w-full px-4 py-3 bg-gray-100 dark:bg-dark-700 border border-gray-300 dark:border-dark-600 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:border-primary-500"
                                     placeholder="Your name"
                                 />
                             </div>
@@ -457,7 +457,7 @@ const LostAndFound = () => {
                                         type="tel"
                                         value={reportForm.contactPhone}
                                         onChange={(e) => setReportForm({ ...reportForm, contactPhone: e.target.value })}
-                                        className="w-full px-4 py-3 bg-dark-700 border border-dark-600 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:border-primary-500"
+                                        className="w-full px-4 py-3 bg-gray-100 dark:bg-dark-700 border border-gray-300 dark:border-dark-600 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:border-primary-500"
                                         placeholder="+1-555-0123"
                                     />
                                 </div>
@@ -468,7 +468,7 @@ const LostAndFound = () => {
                                         type="email"
                                         value={reportForm.contactEmail}
                                         onChange={(e) => setReportForm({ ...reportForm, contactEmail: e.target.value })}
-                                        className="w-full px-4 py-3 bg-dark-700 border border-dark-600 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:border-primary-500"
+                                        className="w-full px-4 py-3 bg-gray-100 dark:bg-dark-700 border border-gray-300 dark:border-dark-600 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:border-primary-500"
                                         placeholder="your.email@college.edu"
                                     />
                                 </div>
@@ -497,7 +497,7 @@ const LostAndFound = () => {
                                                 reader.readAsDataURL(file);
                                             }
                                         }}
-                                        className="w-full px-4 py-3 bg-dark-700 border border-dark-600 rounded-xl text-white file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-primary-500 file:text-white hover:file:bg-primary-600 file:cursor-pointer focus:outline-none focus:border-primary-500"
+                                        className="w-full px-4 py-3 bg-gray-100 dark:bg-dark-700 border border-gray-300 dark:border-dark-600 rounded-xl text-white file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-primary-500 file:text-white hover:file:bg-primary-600 file:cursor-pointer focus:outline-none focus:border-primary-500"
                                     />
                                 </div>
                                 {reportForm.imageUrl && (
@@ -505,7 +505,7 @@ const LostAndFound = () => {
                                         <img
                                             src={reportForm.imageUrl}
                                             alt="Preview"
-                                            className="w-full max-w-xs h-48 object-cover rounded-xl border border-dark-600"
+                                            className="w-full max-w-xs h-48 object-cover rounded-xl border border-gray-300 dark:border-dark-600"
                                         />
                                         <button
                                             type="button"
@@ -526,14 +526,14 @@ const LostAndFound = () => {
                                 <button
                                     type="button"
                                     onClick={() => setShowReportModal(false)}
-                                    className="flex-1 px-6 py-3 bg-dark-700 hover:bg-dark-600 text-white rounded-xl font-semibold transition-all"
+                                    className="flex-1 px-6 py-3 bg-gray-100 dark:bg-dark-700 hover:bg-gray-200 dark:bg-dark-600 text-white rounded-xl font-semibold transition-all"
                                 >
                                     Cancel
                                 </button>
                                 <button
                                     type="submit"
                                     disabled={isLoading}
-                                    className="flex-1 px-6 py-3 bg-gradient-to-r from-primary-500 to-accent-500 hover:from-primary-600 hover:to-accent-600 text-white rounded-xl font-semibold transition-all disabled:opacity-50"
+                                    className="flex-1 px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white rounded-xl font-semibold transition-all disabled:opacity-50"
                                 >
                                     {isLoading ? "Submitting..." : "Report Item"}
                                 </button>
@@ -546,8 +546,8 @@ const LostAndFound = () => {
             {/* Image Crop Modal */}
             {showCropModal && imageToCrop && (
                 <div className="fixed inset-0 bg-black/90 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-                    <div className="bg-dark-800 rounded-2xl shadow-2xl w-full max-w-3xl max-h-[90vh] overflow-y-auto border border-dark-700">
-                        <div className="sticky top-0 bg-dark-800 border-b border-dark-700 px-6 py-4 flex items-center justify-between z-10">
+                    <div className="bg-white dark:bg-dark-800 rounded-2xl shadow-2xl w-full max-w-3xl max-h-[90vh] overflow-y-auto border border-gray-200 dark:border-dark-700">
+                        <div className="sticky top-0 bg-white dark:bg-dark-800 border-b border-gray-200 dark:border-dark-700 px-6 py-4 flex items-center justify-between z-10">
                             <div className="flex items-center gap-3">
                                 <FaCrop className="text-primary-500 text-xl" />
                                 <h2 className="text-2xl font-bold text-white">Crop Image</h2>
@@ -566,7 +566,7 @@ const LostAndFound = () => {
                         </div>
 
                         <div className="p-6">
-                            <div className="bg-dark-900 rounded-xl p-4 mb-6">
+                            <div className="bg-gray-50 dark:bg-dark-900 rounded-xl p-4 mb-6">
                                 <ReactCrop
                                     crop={crop}
                                     onChange={(c) => setCrop(c)}
@@ -600,7 +600,7 @@ const LostAndFound = () => {
                                         setCrop(undefined);
                                         setCompletedCrop(null);
                                     }}
-                                    className="flex-1 px-6 py-3 bg-dark-700 hover:bg-dark-600 text-white rounded-xl font-semibold transition-all"
+                                    className="flex-1 px-6 py-3 bg-gray-100 dark:bg-dark-700 hover:bg-gray-200 dark:bg-dark-600 text-white rounded-xl font-semibold transition-all"
                                 >
                                     Cancel
                                 </button>
@@ -653,7 +653,7 @@ const LostAndFound = () => {
                                             });
                                         }
                                     }}
-                                    className="flex-1 px-6 py-3 bg-gradient-to-r from-primary-500 to-accent-500 hover:from-primary-600 hover:to-accent-600 text-white rounded-xl font-semibold transition-all"
+                                    className="flex-1 px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white rounded-xl font-semibold transition-all"
                                 >
                                     Apply Crop
                                 </button>
@@ -666,22 +666,22 @@ const LostAndFound = () => {
             {/* Claim Item Modal */}
             {showClaimModal && selectedItem && (
                 <div className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-                    <div className="bg-dark-800 border border-dark-700 rounded-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto">
-                        <div className="sticky top-0 bg-dark-800 border-b border-dark-700 p-6 flex items-center justify-between">
+                    <div className="bg-white dark:bg-dark-800 border border-gray-200 dark:border-dark-700 rounded-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto">
+                        <div className="sticky top-0 bg-white dark:bg-dark-800 border-b border-gray-200 dark:border-dark-700 p-6 flex items-center justify-between">
                             <h2 className="text-2xl font-bold text-white">Claim Item: {selectedItem.itemName}</h2>
                             <button
                                 onClick={() => {
                                     setShowClaimModal(false);
                                     setSelectedItem(null);
                                 }}
-                                className="p-2 hover:bg-dark-700 rounded-lg transition-colors"
+                                className="p-2 hover:bg-gray-100 dark:bg-dark-700 rounded-lg transition-colors"
                             >
                                 <FaTimes className="text-slate-400 text-xl" />
                             </button>
                         </div>
 
                         <form onSubmit={handleClaimSubmit} className="p-6 space-y-4">
-                            <div className="bg-dark-700 border border-dark-600 rounded-xl p-4 mb-6">
+                            <div className="bg-gray-100 dark:bg-dark-700 border border-gray-300 dark:border-dark-600 rounded-xl p-4 mb-6">
                                 <h3 className="font-semibold text-white mb-2">Item Details</h3>
                                 <p className="text-slate-300 text-sm mb-2">{selectedItem.description}</p>
                                 <div className="flex items-center gap-2 text-slate-400 text-sm">
@@ -698,7 +698,7 @@ const LostAndFound = () => {
                                     type="text"
                                     value={claimForm.claimerName}
                                     onChange={(e) => setClaimForm({ ...claimForm, claimerName: e.target.value })}
-                                    className="w-full px-4 py-3 bg-dark-700 border border-dark-600 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:border-primary-500"
+                                    className="w-full px-4 py-3 bg-gray-100 dark:bg-dark-700 border border-gray-300 dark:border-dark-600 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:border-primary-500"
                                     placeholder="Enter your name"
                                     required
                                 />
@@ -713,7 +713,7 @@ const LostAndFound = () => {
                                         type="email"
                                         value={claimForm.claimerEmail}
                                         onChange={(e) => setClaimForm({ ...claimForm, claimerEmail: e.target.value })}
-                                        className="w-full px-4 py-3 bg-dark-700 border border-dark-600 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:border-primary-500"
+                                        className="w-full px-4 py-3 bg-gray-100 dark:bg-dark-700 border border-gray-300 dark:border-dark-600 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:border-primary-500"
                                         placeholder="your.email@college.edu"
                                         required
                                     />
@@ -725,7 +725,7 @@ const LostAndFound = () => {
                                         type="tel"
                                         value={claimForm.claimerPhone}
                                         onChange={(e) => setClaimForm({ ...claimForm, claimerPhone: e.target.value })}
-                                        className="w-full px-4 py-3 bg-dark-700 border border-dark-600 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:border-primary-500"
+                                        className="w-full px-4 py-3 bg-gray-100 dark:bg-dark-700 border border-gray-300 dark:border-dark-600 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:border-primary-500"
                                         placeholder="+1-555-0123"
                                     />
                                 </div>
@@ -738,7 +738,7 @@ const LostAndFound = () => {
                                 <textarea
                                     value={claimForm.proofDescription}
                                     onChange={(e) => setClaimForm({ ...claimForm, proofDescription: e.target.value })}
-                                    className="w-full px-4 py-3 bg-dark-700 border border-dark-600 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:border-primary-500 min-h-[100px]"
+                                    className="w-full px-4 py-3 bg-gray-100 dark:bg-dark-700 border border-gray-300 dark:border-dark-600 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:border-primary-500 min-h-[100px]"
                                     placeholder="Describe identifying features, serial numbers, or any proof that this item belongs to you..."
                                     required
                                 />
@@ -749,7 +749,7 @@ const LostAndFound = () => {
                                 <textarea
                                     value={claimForm.additionalDetails}
                                     onChange={(e) => setClaimForm({ ...claimForm, additionalDetails: e.target.value })}
-                                    className="w-full px-4 py-3 bg-dark-700 border border-dark-600 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:border-primary-500 min-h-[80px]"
+                                    className="w-full px-4 py-3 bg-gray-100 dark:bg-dark-700 border border-gray-300 dark:border-dark-600 rounded-xl text-white placeholder-slate-400 focus:outline-none focus:border-primary-500 min-h-[80px]"
                                     placeholder="Any additional information..."
                                 />
                             </div>
@@ -768,14 +768,14 @@ const LostAndFound = () => {
                                         setShowClaimModal(false);
                                         setSelectedItem(null);
                                     }}
-                                    className="flex-1 px-6 py-3 bg-dark-700 hover:bg-dark-600 text-white rounded-xl font-semibold transition-all"
+                                    className="flex-1 px-6 py-3 bg-gray-100 dark:bg-dark-700 hover:bg-gray-200 dark:bg-dark-600 text-white rounded-xl font-semibold transition-all"
                                 >
                                     Cancel
                                 </button>
                                 <button
                                     type="submit"
                                     disabled={isLoading}
-                                    className="flex-1 px-6 py-3 bg-gradient-to-r from-primary-500 to-accent-500 hover:from-primary-600 hover:to-accent-600 text-white rounded-xl font-semibold transition-all disabled:opacity-50"
+                                    className="flex-1 px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white rounded-xl font-semibold transition-all disabled:opacity-50"
                                 >
                                     {isLoading ? "Submitting..." : "Submit Claim"}
                                 </button>

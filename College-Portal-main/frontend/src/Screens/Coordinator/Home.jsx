@@ -54,7 +54,7 @@ const Home = () => {
   );
 
   return (
-    <div className="flex min-h-screen bg-dark-900">
+    <div className="flex min-h-screen bg-gray-50 dark:bg-dark-900">
       <Sidebar
         menuItems={MENU_ITEMS}
         selectedMenu={selectedMenu}
@@ -73,7 +73,7 @@ const Home = () => {
 
         <div className="p-4 md:p-8 overflow-x-hidden">
           {!society ? (
-            <div className="bg-dark-800 border border-dark-700 rounded-2xl p-6 text-slate-300">
+            <div className="bg-white dark:bg-dark-800 border border-gray-200 dark:border-dark-700 rounded-2xl p-6 text-slate-300">
               You are not assigned to any society. Please contact admin.
             </div>
           ) : (

@@ -267,7 +267,7 @@ const Societies = () => {
           className={`px-4 py-2 rounded-xl border text-sm ${
             activeTab === "societies"
               ? "bg-primary-500 hover:bg-primary-600 text-white border-primary-500"
-              : "bg-dark-800 hover:bg-dark-700 text-slate-200 border-dark-700"
+              : "bg-white dark:bg-dark-800 hover:bg-gray-100 dark:bg-dark-700 text-gray-900 dark:text-gray-200 border-gray-200 dark:border-dark-700"
           }`}
         >
           Societies
@@ -277,7 +277,7 @@ const Societies = () => {
           className={`px-4 py-2 rounded-xl border text-sm ${
             activeTab === "coordinators"
               ? "bg-primary-500 hover:bg-primary-600 text-white border-primary-500"
-              : "bg-dark-800 hover:bg-dark-700 text-slate-200 border-dark-700"
+              : "bg-white dark:bg-dark-800 hover:bg-gray-100 dark:bg-dark-700 text-gray-900 dark:text-gray-200 border-gray-200 dark:border-dark-700"
           }`}
         >
           Coordinators
@@ -285,8 +285,8 @@ const Societies = () => {
       </div>
 
       {activeTab === "societies" ? (
-        <div className="bg-dark-800 border border-dark-700 rounded-2xl overflow-hidden">
-          <div className="p-4 border-b border-dark-700 text-slate-200 font-semibold">Society List</div>
+        <div className="bg-white dark:bg-dark-800 border border-gray-200 dark:border-dark-700 rounded-2xl overflow-hidden">
+          <div className="p-4 border-b border-gray-200 dark:border-dark-700 text-gray-900 dark:text-gray-200 font-semibold">Society List</div>
 
           {loading ? (
             <div className="p-6 text-slate-400">Loading...</div>
@@ -297,7 +297,7 @@ const Societies = () => {
               {items.map((s) => (
                 <div key={s._id} className="p-4 flex items-start justify-between gap-4">
                   <div>
-                    <div className="text-slate-200 font-semibold">{s.name}</div>
+                    <div className="text-gray-900 dark:text-gray-200 font-semibold">{s.name}</div>
                     {s.description ? <div className="text-sm text-slate-400">{s.description}</div> : null}
                     <div className="mt-1 text-xs text-slate-500">Status: {s.status || "active"}</div>
                   </div>
@@ -305,13 +305,13 @@ const Societies = () => {
                   <div className="flex items-center gap-2">
                     <button
                       onClick={() => startEdit(s)}
-                      className="px-3 py-1.5 rounded-xl bg-dark-700 hover:bg-dark-600 text-slate-200 text-xs"
+                      className="px-3 py-1.5 rounded-xl bg-gray-100 dark:bg-dark-700 hover:bg-gray-200 dark:bg-dark-600 text-gray-900 dark:text-gray-200 text-xs"
                     >
                       Edit
                     </button>
                     <button
                       onClick={() => requestDelete(s._id)}
-                      className="px-3 py-1.5 rounded-xl bg-dark-700 hover:bg-dark-600 text-red-300 text-xs"
+                      className="px-3 py-1.5 rounded-xl bg-gray-100 dark:bg-dark-700 hover:bg-gray-200 dark:bg-dark-600 text-red-300 text-xs"
                     >
                       Delete
                     </button>
@@ -323,14 +323,14 @@ const Societies = () => {
         </div>
       ) : (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-          <div className="bg-dark-800 border border-dark-700 rounded-2xl overflow-hidden">
-            <div className="p-4 border-b border-dark-700 text-slate-200 font-semibold">Assign Coordinator</div>
+          <div className="bg-white dark:bg-dark-800 border border-gray-200 dark:border-dark-700 rounded-2xl overflow-hidden">
+            <div className="p-4 border-b border-gray-200 dark:border-dark-700 text-gray-900 dark:text-gray-200 font-semibold">Assign Coordinator</div>
 
             <div className="p-4 space-y-3">
               <div>
                 <label className="block text-xs text-slate-400 mb-1">Society</label>
                 <select
-                  className="w-full px-3 py-2 rounded-xl bg-dark-700 border border-dark-600 text-white"
+                  className="w-full px-3 py-2 rounded-xl bg-gray-100 dark:bg-dark-700 border border-gray-300 dark:border-dark-600 text-white"
                   value={selectedSocietyId}
                   onChange={(e) => setSelectedSocietyId(e.target.value)}
                 >
@@ -345,7 +345,7 @@ const Societies = () => {
               <div>
                 <label className="block text-xs text-slate-400 mb-1">Search student</label>
                 <input
-                  className="w-full px-3 py-2 rounded-xl bg-dark-700 border border-dark-600 text-white"
+                  className="w-full px-3 py-2 rounded-xl bg-gray-100 dark:bg-dark-700 border border-gray-300 dark:border-dark-600 text-white"
                   placeholder="Search by name or email"
                   value={studentQuery}
                   onChange={(e) => setStudentQuery(e.target.value)}
@@ -355,7 +355,7 @@ const Societies = () => {
               <div>
                 <label className="block text-xs text-slate-400 mb-1">Student</label>
                 <select
-                  className="w-full px-3 py-2 rounded-xl bg-dark-700 border border-dark-600 text-white"
+                  className="w-full px-3 py-2 rounded-xl bg-gray-100 dark:bg-dark-700 border border-gray-300 dark:border-dark-600 text-white"
                   value={selectedStudentId}
                   onChange={(e) => setSelectedStudentId(e.target.value)}
                   disabled={studentsLoading}
@@ -382,8 +382,8 @@ const Societies = () => {
             </div>
           </div>
 
-          <div className="bg-dark-800 border border-dark-700 rounded-2xl overflow-hidden">
-            <div className="p-4 border-b border-dark-700 text-slate-200 font-semibold">Assigned Coordinators</div>
+          <div className="bg-white dark:bg-dark-800 border border-gray-200 dark:border-dark-700 rounded-2xl overflow-hidden">
+            <div className="p-4 border-b border-gray-200 dark:border-dark-700 text-gray-900 dark:text-gray-200 font-semibold">Assigned Coordinators</div>
 
             {coordinatorsLoading ? (
               <div className="p-6 text-slate-400">Loading...</div>
@@ -394,7 +394,7 @@ const Societies = () => {
                 {coordinatorsForSelectedSociety.map((c) => (
                   <div key={c?._id} className="p-4 flex items-start justify-between gap-4">
                     <div>
-                      <div className="text-slate-200 font-semibold">
+                      <div className="text-gray-900 dark:text-gray-200 font-semibold">
                         {c?.studentId?.firstName || c?.firstName} {c?.studentId?.lastName || c?.lastName}
                       </div>
                       <div className="text-sm text-slate-400">{c?.studentId?.email || c?.email}</div>
@@ -404,7 +404,7 @@ const Societies = () => {
                       <button
                         onClick={() => unassignCoordinator(c?._id)}
                         disabled={assigning}
-                        className="px-3 py-1.5 rounded-xl bg-dark-700 hover:bg-dark-600 text-red-300 text-xs disabled:opacity-60"
+                        className="px-3 py-1.5 rounded-xl bg-gray-100 dark:bg-dark-700 hover:bg-gray-200 dark:bg-dark-600 text-red-300 text-xs disabled:opacity-60"
                       >
                         Unassign
                       </button>
@@ -429,10 +429,10 @@ const Societies = () => {
 
       {open && (
         <div className="fixed inset-0 z-50 bg-black/60 flex items-center justify-center p-4">
-          <div className="w-full max-w-2xl bg-dark-800 border border-dark-700 rounded-2xl overflow-hidden">
-            <div className="flex items-center justify-between p-4 border-b border-dark-700">
-              <div className="text-slate-200 font-semibold">{title}</div>
-              <button onClick={() => setOpen(false)} className="text-slate-400 hover:text-slate-200">
+          <div className="w-full max-w-2xl bg-white dark:bg-dark-800 border border-gray-200 dark:border-dark-700 rounded-2xl overflow-hidden">
+            <div className="flex items-center justify-between p-4 border-b border-gray-200 dark:border-dark-700">
+              <div className="text-gray-900 dark:text-gray-200 font-semibold">{title}</div>
+              <button onClick={() => setOpen(false)} className="text-slate-400 hover:text-gray-900 dark:text-gray-200">
                 ✕
               </button>
             </div>
@@ -441,7 +441,7 @@ const Societies = () => {
               <div>
                 <label className="block text-xs text-slate-400 mb-1">Name *</label>
                 <input
-                  className="w-full px-3 py-2 rounded-xl bg-dark-700 border border-dark-600 text-white"
+                  className="w-full px-3 py-2 rounded-xl bg-gray-100 dark:bg-dark-700 border border-gray-300 dark:border-dark-600 text-white"
                   value={form.name}
                   onChange={(e) => setForm((p) => ({ ...p, name: e.target.value }))}
                   required
@@ -451,7 +451,7 @@ const Societies = () => {
               <div>
                 <label className="block text-xs text-slate-400 mb-1">Description</label>
                 <textarea
-                  className="w-full px-3 py-2 rounded-xl bg-dark-700 border border-dark-600 text-white"
+                  className="w-full px-3 py-2 rounded-xl bg-gray-100 dark:bg-dark-700 border border-gray-300 dark:border-dark-600 text-white"
                   rows={3}
                   value={form.description}
                   onChange={(e) => setForm((p) => ({ ...p, description: e.target.value }))}
@@ -461,7 +461,7 @@ const Societies = () => {
               <div>
                 <label className="block text-xs text-slate-400 mb-1">Cover Pic (URL)</label>
                 <input
-                  className="w-full px-3 py-2 rounded-xl bg-dark-700 border border-dark-600 text-white"
+                  className="w-full px-3 py-2 rounded-xl bg-gray-100 dark:bg-dark-700 border border-gray-300 dark:border-dark-600 text-white"
                   value={form.coverImageUrl}
                   onChange={(e) => setForm((p) => ({ ...p, coverImageUrl: e.target.value }))}
                   placeholder="https://..."
@@ -471,7 +471,7 @@ const Societies = () => {
                     <img
                       src={form.coverImageUrl}
                       alt="cover preview"
-                      className="w-full h-40 object-cover rounded-xl border border-dark-600"
+                      className="w-full h-40 object-cover rounded-xl border border-gray-300 dark:border-dark-600"
                     />
                   </div>
                 ) : null}
@@ -480,7 +480,7 @@ const Societies = () => {
               <div>
                 <label className="block text-xs text-slate-400 mb-1">Website</label>
                 <input
-                  className="w-full px-3 py-2 rounded-xl bg-dark-700 border border-dark-600 text-white"
+                  className="w-full px-3 py-2 rounded-xl bg-gray-100 dark:bg-dark-700 border border-gray-300 dark:border-dark-600 text-white"
                   value={form.website}
                   onChange={(e) => setForm((p) => ({ ...p, website: e.target.value }))}
                   placeholder="https://..."
@@ -491,7 +491,7 @@ const Societies = () => {
                 <div>
                   <label className="block text-xs text-slate-400 mb-1">Contact Name</label>
                   <input
-                    className="w-full px-3 py-2 rounded-xl bg-dark-700 border border-dark-600 text-white"
+                    className="w-full px-3 py-2 rounded-xl bg-gray-100 dark:bg-dark-700 border border-gray-300 dark:border-dark-600 text-white"
                     value={form.contactName}
                     onChange={(e) => setForm((p) => ({ ...p, contactName: e.target.value }))}
                   />
@@ -499,7 +499,7 @@ const Societies = () => {
                 <div>
                   <label className="block text-xs text-slate-400 mb-1">Contact Email</label>
                   <input
-                    className="w-full px-3 py-2 rounded-xl bg-dark-700 border border-dark-600 text-white"
+                    className="w-full px-3 py-2 rounded-xl bg-gray-100 dark:bg-dark-700 border border-gray-300 dark:border-dark-600 text-white"
                     value={form.contactEmail}
                     onChange={(e) => setForm((p) => ({ ...p, contactEmail: e.target.value }))}
                   />
@@ -507,7 +507,7 @@ const Societies = () => {
                 <div>
                   <label className="block text-xs text-slate-400 mb-1">Contact Phone</label>
                   <input
-                    className="w-full px-3 py-2 rounded-xl bg-dark-700 border border-dark-600 text-white"
+                    className="w-full px-3 py-2 rounded-xl bg-gray-100 dark:bg-dark-700 border border-gray-300 dark:border-dark-600 text-white"
                     value={form.contactPhone}
                     onChange={(e) => setForm((p) => ({ ...p, contactPhone: e.target.value }))}
                   />
@@ -518,7 +518,7 @@ const Societies = () => {
                 <div>
                   <label className="block text-xs text-slate-400 mb-1">Instagram</label>
                   <input
-                    className="w-full px-3 py-2 rounded-xl bg-dark-700 border border-dark-600 text-white"
+                    className="w-full px-3 py-2 rounded-xl bg-gray-100 dark:bg-dark-700 border border-gray-300 dark:border-dark-600 text-white"
                     value={form.instagram}
                     onChange={(e) => setForm((p) => ({ ...p, instagram: e.target.value }))}
                   />
@@ -526,7 +526,7 @@ const Societies = () => {
                 <div>
                   <label className="block text-xs text-slate-400 mb-1">Facebook</label>
                   <input
-                    className="w-full px-3 py-2 rounded-xl bg-dark-700 border border-dark-600 text-white"
+                    className="w-full px-3 py-2 rounded-xl bg-gray-100 dark:bg-dark-700 border border-gray-300 dark:border-dark-600 text-white"
                     value={form.facebook}
                     onChange={(e) => setForm((p) => ({ ...p, facebook: e.target.value }))}
                   />
@@ -534,7 +534,7 @@ const Societies = () => {
                 <div>
                   <label className="block text-xs text-slate-400 mb-1">X</label>
                   <input
-                    className="w-full px-3 py-2 rounded-xl bg-dark-700 border border-dark-600 text-white"
+                    className="w-full px-3 py-2 rounded-xl bg-gray-100 dark:bg-dark-700 border border-gray-300 dark:border-dark-600 text-white"
                     value={form.x}
                     onChange={(e) => setForm((p) => ({ ...p, x: e.target.value }))}
                   />
@@ -542,7 +542,7 @@ const Societies = () => {
                 <div>
                   <label className="block text-xs text-slate-400 mb-1">LinkedIn</label>
                   <input
-                    className="w-full px-3 py-2 rounded-xl bg-dark-700 border border-dark-600 text-white"
+                    className="w-full px-3 py-2 rounded-xl bg-gray-100 dark:bg-dark-700 border border-gray-300 dark:border-dark-600 text-white"
                     value={form.linkedin}
                     onChange={(e) => setForm((p) => ({ ...p, linkedin: e.target.value }))}
                   />
@@ -550,7 +550,7 @@ const Societies = () => {
                 <div>
                   <label className="block text-xs text-slate-400 mb-1">YouTube</label>
                   <input
-                    className="w-full px-3 py-2 rounded-xl bg-dark-700 border border-dark-600 text-white"
+                    className="w-full px-3 py-2 rounded-xl bg-gray-100 dark:bg-dark-700 border border-gray-300 dark:border-dark-600 text-white"
                     value={form.youtube}
                     onChange={(e) => setForm((p) => ({ ...p, youtube: e.target.value }))}
                   />
@@ -560,7 +560,7 @@ const Societies = () => {
               <div>
                 <label className="block text-xs text-slate-400 mb-1">Status</label>
                 <select
-                  className="w-full px-3 py-2 rounded-xl bg-dark-700 border border-dark-600 text-white"
+                  className="w-full px-3 py-2 rounded-xl bg-gray-100 dark:bg-dark-700 border border-gray-300 dark:border-dark-600 text-white"
                   value={form.status}
                   onChange={(e) => setForm((p) => ({ ...p, status: e.target.value }))}
                 >
@@ -573,7 +573,7 @@ const Societies = () => {
                 <button
                   type="button"
                   onClick={() => setOpen(false)}
-                  className="px-4 py-2 rounded-xl bg-dark-700 hover:bg-dark-600 text-slate-200"
+                  className="px-4 py-2 rounded-xl bg-gray-100 dark:bg-dark-700 hover:bg-gray-200 dark:bg-dark-600 text-gray-900 dark:text-gray-200"
                 >
                   Cancel
                 </button>

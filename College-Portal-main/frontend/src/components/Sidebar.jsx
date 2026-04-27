@@ -20,18 +20,18 @@ const Sidebar = ({ menuItems, selectedMenu, onMenuSelect, userType, isOpen, setI
   const navigate = useNavigate();
 
   const iconMap = {
-    home: <RxDashboard className="text-xl" />,
-    student: <MdPeople className="text-xl" />,
-    faculty: <RxPerson className="text-xl" />,
-    branch: <MdSchool className="text-xl" />,
-    notice: <RxFileText className="text-xl" />,
-    exam: <MdAssignment className="text-xl" />,
-    subjects: <MdBook className="text-xl" />,
-    admin: <RxPerson className="text-xl" />,
-    timetable: <MdEvent className="text-xl" />,
-    material: <RxReader className="text-xl" />,
-    marks: <RxBarChart className="text-xl" />,
-    "student info": <MdPeople className="text-xl" />,
+    home: <RxDashboard className="text-lg" />,
+    student: <MdPeople className="text-lg" />,
+    faculty: <RxPerson className="text-lg" />,
+    branch: <MdSchool className="text-lg" />,
+    notice: <RxFileText className="text-lg" />,
+    exam: <MdAssignment className="text-lg" />,
+    subjects: <MdBook className="text-lg" />,
+    admin: <RxPerson className="text-lg" />,
+    timetable: <MdEvent className="text-lg" />,
+    material: <RxReader className="text-lg" />,
+    marks: <RxBarChart className="text-lg" />,
+    "student info": <MdPeople className="text-lg" />,
   };
 
   const logoutHandler = () => {
@@ -40,46 +40,52 @@ const Sidebar = ({ menuItems, selectedMenu, onMenuSelect, userType, isOpen, setI
     navigate("/login");
   };
 
+  const userTypeColors = {
+    Admin: "bg-primary-600",
+    Faculty: "bg-secondary-600",
+    Student: "bg-primary-500",
+  };
+
   return (
     <>
       {/* Mobile Backdrop */}
       {isOpen && (
         <div 
-          className="fixed inset-0 bg-black/60 z-40 md:hidden backdrop-blur-sm transition-opacity"
+          className="fixed inset-0 bg-black/50 z-40 md:hidden backdrop-blur-sm transition-opacity"
           onClick={() => setIsOpen && setIsOpen(false)}
         />
       )}
 
       {/* Sidebar Content */}
       <div 
-        className={`w-64 bg-dark-800 border-r border-dark-700 h-screen flex flex-col fixed left-0 top-0 z-50 transform transition-transform duration-300 ease-in-out md:translate-x-0 ${isOpen ? "translate-x-0" : "-translate-x-full"}`}
+        className={`w-64 bg-white dark:bg-dark-800 border-r border-gray-200 dark:border-dark-700 h-screen flex flex-col fixed left-0 top-0 z-50 transform transition-transform duration-300 ease-in-out md:translate-x-0 ${isOpen ? "translate-x-0" : "-translate-x-full"}`}
       >
         {/* Logo Section */}
-        <div className="p-6 border-b border-dark-700 flex justify-between items-center">
+        <div className="px-5 py-5 border-b border-gray-100 dark:border-dark-700 flex justify-between items-center">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-gradient-to-br from-primary-500 to-accent-500 rounded-xl flex items-center justify-center">
-              <MdSchool className="text-white text-2xl" />
+            <div className={`w-9 h-9 ${userTypeColors[userType] || "bg-primary-600"} rounded-lg flex items-center justify-center shadow-sm`}>
+              <MdSchool className="text-white text-xl" />
             </div>
             <div>
-              <h1 className="text-white font-bold text-lg">College</h1>
-              <p className="text-gray-400 text-xs">{userType} Panel</p>
+              <h1 className="text-gray-900 dark:text-white font-bold text-base leading-tight">College Portal</h1>
+              <p className="text-gray-400 dark:text-gray-500 text-[10px] uppercase tracking-wider font-semibold">{userType} Panel</p>
             </div>
           </div>
           {/* Close button on mobile */}
           <button 
-            className="md:hidden text-gray-400 hover:text-white"
+            className="md:hidden text-gray-400 hover:text-gray-600 dark:hover:text-white p-1"
             onClick={() => setIsOpen && setIsOpen(false)}
           >
-            <RxExit className="text-xl rotate-180" />
+            <RxExit className="text-lg rotate-180" />
           </button>
         </div>
 
         {/* Navigation Section */}
-        <div className="flex-1 overflow-y-auto py-6 px-4">
-          <p className="text-gray-500 text-xs font-semibold uppercase px-4 mb-3">
-            Navigation
+        <div className="flex-1 overflow-y-auto py-4 px-3">
+          <p className="text-gray-400 dark:text-gray-500 text-[10px] font-bold uppercase tracking-widest px-3 mb-2">
+            Menu
           </p>
-          <nav className="space-y-1">
+          <nav className="space-y-0.5">
             {menuItems.map((item) => {
               const isActive = selectedMenu === item.id;
               return (
@@ -89,14 +95,19 @@ const Sidebar = ({ menuItems, selectedMenu, onMenuSelect, userType, isOpen, setI
                     onMenuSelect(item.id);
                     if (setIsOpen) setIsOpen(false);
                   }}
-                  className={`w-full sidebar-item ${
-                    isActive ? "sidebar-item-active" : "sidebar-item-inactive"
+                  className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition-all duration-150 ${
+                    isActive 
+                      ? "bg-primary-50 dark:bg-primary-900/20 text-primary-700 dark:text-primary-300 font-semibold" 
+                      : "text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-dark-700 hover:text-gray-900 dark:hover:text-white"
                   }`}
                 >
-                  <span className={isActive ? "text-primary-400" : ""}>
-                    {iconMap[item.id] || <RxDashboard className="text-xl" />}
+                  <span className={isActive ? "text-primary-600 dark:text-primary-400" : ""}>
+                    {iconMap[item.id] || <RxDashboard className="text-lg" />}
                   </span>
-                  <span className="font-medium">{item.label}</span>
+                  <span>{item.label}</span>
+                  {isActive && (
+                    <span className="ml-auto w-1.5 h-1.5 bg-primary-600 dark:bg-primary-400 rounded-full"></span>
+                  )}
                 </button>
               );
             })}
@@ -104,12 +115,12 @@ const Sidebar = ({ menuItems, selectedMenu, onMenuSelect, userType, isOpen, setI
         </div>
 
         {/* Bottom Section */}
-        <div className="p-4 border-t border-dark-700 space-y-2">
+        <div className="p-3 border-t border-gray-100 dark:border-dark-700">
           <button
             onClick={logoutHandler}
-            className="w-full flex items-center gap-3 px-4 py-3 text-red-400 hover:bg-dark-700 rounded-lg transition-all duration-200"
+            className="w-full flex items-center gap-3 px-3 py-2.5 text-sm text-red-500 hover:bg-red-50 dark:hover:bg-red-500/10 rounded-lg transition-all duration-150"
           >
-            <RxExit className="text-xl" />
+            <RxExit className="text-lg" />
             <span className="font-medium">Logout</span>
           </button>
         </div>

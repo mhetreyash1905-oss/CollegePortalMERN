@@ -1,0 +1,34 @@
+to run the project 
+1 check for errors
+2 cd College-Portal-main\frontend
+    3 npm start
+4  cd College-Portal-main\backend
+    5 npm run dev 
+
+
+1. frontend -> npm start (http://localhost:3001)
+2. backend -> npm run dev (http://localhost:5000)   
+
+
+add theme switch
+fix ui/ux
+
+
+
+#	Name	Email	Password
+1	Riya Mehta	riya.mehta@student.college.edu	student123
+2	Arjun Nair	arjun.nair@student.college.edu	student123
+3	Dev Rana	dev.rana@student.college.edu	student123
+4	Ananya Gupta	ananya.gupta@student.college.edu	student123
+5	Siddharth Verma	siddharth.verma@student.college.edu	student123
+
+
+#	Name	Email	Password
+1	Kunal Joshi	kunal.joshi@alumni.college.edu	alumni123
+2	Sneha Kapoor	sneha.kapoor@alumni.college.edu	alumni123
+3	Rahul Desai	rahul.desai@alumni.college.edu	alumni123
+
+
+#	Name	Email	Password
+1	Priya Shah	priya.shah@college.edu	faculty123
+2	Amit Patel	amit.patel@college.edu	faculty123

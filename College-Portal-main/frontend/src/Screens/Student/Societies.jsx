@@ -179,7 +179,7 @@ const formatWhen = (iso) => {
 
       return (
         <div className="space-y-8">
-          <div className="relative overflow-hidden bg-gradient-to-br from-primary-600 via-primary-500 to-cyan-500 rounded-3xl p-10 text-white shadow-2xl">
+          <div className="relative overflow-hidden bg-primary-600 rounded-3xl p-10 text-white shadow-2xl">
             <div className="absolute inset-0 opacity-10">
               <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full mix-blend-overlay filter blur-3xl animate-pulse" />
               <div
@@ -200,7 +200,7 @@ const formatWhen = (iso) => {
               </div>
 
               <div className="bg-white/20 backdrop-blur-lg rounded-2xl p-6 text-center border border-white/30 shadow-xl">
-                <div className="text-5xl font-black bg-gradient-to-br from-white to-cyan-100 bg-clip-text text-transparent">
+                <div className="text-5xl font-black bg-primary-600 bg-clip-text text-transparent">
                   {societies.length}
                 </div>
                 <div className="text-sm text-white/90 font-semibold mt-1">Active Societies</div>
@@ -208,9 +208,9 @@ const formatWhen = (iso) => {
             </div>
           </div>
 
-          <div className="bg-gradient-to-br from-dark-800 to-dark-900 border border-dark-700/50 rounded-3xl overflow-hidden shadow-2xl backdrop-blur-sm">
-            <div className="p-6 border-b border-dark-700/50 bg-gradient-to-r from-primary-500/10 to-cyan-500/10">
-              <h2 className="text-2xl font-bold text-slate-100">All Societies</h2>
+          <div className="bg-primary-600 border border-gray-200 dark:border-dark-700/50 rounded-3xl overflow-hidden shadow-2xl backdrop-blur-sm">
+            <div className="p-6 border-b border-gray-200 dark:border-dark-700/50 bg-gradient-to-r from-primary-500/10 to-cyan-500/10">
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100">All Societies</h2>
               <p className="text-slate-400 text-sm mt-1">Card shows cover + name + subscribe only</p>
             </div>
 
@@ -234,10 +234,10 @@ const formatWhen = (iso) => {
                     <div
                       key={s?._id}
                       onClick={() => openSociety(s)}
-                      className="bg-gradient-to-br from-dark-900 to-dark-800 border border-dark-700/50 rounded-3xl overflow-hidden hover:border-primary-500/70 hover:shadow-2xl hover:shadow-primary-500/20 hover:-translate-y-1 transition-all duration-300 cursor-pointer"
+                      className="bg-primary-600 border border-gray-200 dark:border-dark-700/50 rounded-3xl overflow-hidden hover:border-primary-500/70 hover:shadow-2xl hover:shadow-primary-500/20 hover:-translate-y-1 transition-all duration-300 cursor-pointer"
                     >
                       <div
-                        className="relative h-44 w-full bg-dark-800"
+                        className="relative h-44 w-full bg-white dark:bg-dark-800"
                         style={
                           cover
                             ? {
@@ -256,7 +256,7 @@ const formatWhen = (iso) => {
                       </div>
 
                       <div className="p-6 space-y-4">
-                        <div className="text-slate-100 text-xl font-black line-clamp-1">{s?.name}</div>
+                        <div className="text-gray-900 dark:text-gray-100 text-xl font-black line-clamp-1">{s?.name}</div>
 
                         <button
                           onClick={(e) => {
@@ -265,8 +265,8 @@ const formatWhen = (iso) => {
                           }}
                           className={`w-full py-3 rounded-xl text-sm font-bold transition-all duration-300 shadow-lg transform hover:scale-[1.02] ${
                             isSubscribed
-                              ? "bg-gradient-to-r from-dark-700 to-dark-600 hover:from-dark-600 hover:to-dark-500 text-slate-200 border border-dark-600/50"
-                              : "bg-gradient-to-r from-primary-500 to-cyan-500 hover:from-primary-600 hover:to-cyan-600 text-white shadow-primary-500/50"
+                              ? "bg-primary-600 hover:bg-primary-700 text-gray-900 dark:text-gray-200 border border-gray-300 dark:border-dark-600/50"
+                              : "bg-primary-600 hover:bg-primary-700 text-white shadow-primary-500/50"
                           }`}
                         >
                           {isSubscribed ? "🔕 Unsubscribe" : "🔔 Subscribe"}
@@ -280,15 +280,15 @@ const formatWhen = (iso) => {
           </div>
 
           {coordinatorSociety ? (
-            <div className="bg-gradient-to-br from-dark-800 to-dark-900 border border-dark-700/50 rounded-3xl overflow-hidden shadow-2xl">
-              <div className="p-6 border-b border-dark-700/50 bg-gradient-to-r from-primary-500/10 to-cyan-500/10">
+            <div className="bg-primary-600 border border-gray-200 dark:border-dark-700/50 rounded-3xl overflow-hidden shadow-2xl">
+              <div className="p-6 border-b border-gray-200 dark:border-dark-700/50 bg-gradient-to-r from-primary-500/10 to-cyan-500/10">
                 <div className="flex items-center justify-between flex-wrap gap-4">
                   <div className="flex items-center gap-3">
-                    <div className="bg-gradient-to-br from-primary-500 to-cyan-500 rounded-2xl p-3 shadow-lg">
+                    <div className="bg-primary-600 rounded-2xl p-3 shadow-lg">
                       <span className="text-2xl">👨‍💼</span>
                     </div>
                     <div>
-                      <div className="text-slate-200 font-bold text-lg">Coordinator Dashboard</div>
+                      <div className="text-gray-900 dark:text-gray-200 font-bold text-lg">Coordinator Dashboard</div>
                       <div className="text-sm text-slate-400">
                         Managing: <span className="text-primary-300 font-semibold">{coordinatorSociety?.name}</span>
                       </div>
@@ -299,8 +299,8 @@ const formatWhen = (iso) => {
                       onClick={() => setCoordinatorTab("events")}
                       className={`px-4 py-2 rounded-xl text-sm font-bold transition-all duration-300 ${
                         coordinatorTab === "events"
-                          ? "bg-gradient-to-r from-primary-500 to-cyan-500 text-white shadow-lg shadow-primary-500/50"
-                          : "bg-dark-700/80 hover:bg-dark-600 text-slate-200 border border-dark-600/50"
+                          ? "bg-primary-600 text-white shadow-lg shadow-primary-500/50"
+                          : "bg-gray-100 dark:bg-dark-700/80 hover:bg-gray-200 dark:bg-dark-600 text-gray-900 dark:text-gray-200 border border-gray-300 dark:border-dark-600/50"
                       }`}
                     >
                       📅 Events
@@ -309,8 +309,8 @@ const formatWhen = (iso) => {
                       onClick={() => setCoordinatorTab("achievements")}
                       className={`px-4 py-2 rounded-xl text-sm font-bold transition-all duration-300 ${
                         coordinatorTab === "achievements"
-                          ? "bg-gradient-to-r from-primary-500 to-cyan-500 text-white shadow-lg shadow-primary-500/50"
-                          : "bg-dark-700/80 hover:bg-dark-600 text-slate-200 border border-dark-600/50"
+                          ? "bg-primary-600 text-white shadow-lg shadow-primary-500/50"
+                          : "bg-gray-100 dark:bg-dark-700/80 hover:bg-gray-200 dark:bg-dark-600 text-gray-900 dark:text-gray-200 border border-gray-300 dark:border-dark-600/50"
                       }`}
                     >
                       🏆 Achievements
@@ -319,8 +319,8 @@ const formatWhen = (iso) => {
                       onClick={() => setCoordinatorTab("projects")}
                       className={`px-4 py-2 rounded-xl text-sm font-bold transition-all duration-300 ${
                         coordinatorTab === "projects"
-                          ? "bg-gradient-to-r from-primary-500 to-cyan-500 text-white shadow-lg shadow-primary-500/50"
-                          : "bg-dark-700/80 hover:bg-dark-600 text-slate-200 border border-dark-600/50"
+                          ? "bg-primary-600 text-white shadow-lg shadow-primary-500/50"
+                          : "bg-gray-100 dark:bg-dark-700/80 hover:bg-gray-200 dark:bg-dark-600 text-gray-900 dark:text-gray-200 border border-gray-300 dark:border-dark-600/50"
                       }`}
                     >
                       💡 Projects
@@ -348,13 +348,13 @@ const formatWhen = (iso) => {
               }`}
             >
               <div
-                className={`bg-gradient-to-br from-dark-800 to-dark-900 border border-dark-700/50 rounded-3xl w-full max-w-3xl overflow-hidden shadow-2xl transition-all duration-300 ${
+                className={`bg-primary-600 border border-gray-200 dark:border-dark-700/50 rounded-3xl w-full max-w-3xl overflow-hidden shadow-2xl transition-all duration-300 ${
                   isModalOpen ? "scale-100 opacity-100" : "scale-90 opacity-0"
                 }`}
               >
-                <div className="relative border-b border-dark-700/50 overflow-hidden">
+                <div className="relative border-b border-gray-200 dark:border-dark-700/50 overflow-hidden">
                   <div
-                    className="h-48 bg-dark-800"
+                    className="h-48 bg-white dark:bg-dark-800"
                     style={
                       selectedSociety?.coverImageUrl
                         ? {
@@ -375,7 +375,7 @@ const formatWhen = (iso) => {
                   <div className="absolute top-4 right-4">
                     <button
                       onClick={closeModal}
-                      className="text-slate-200 hover:text-white bg-black/30 hover:bg-black/40 rounded-full p-2 backdrop-blur-sm transition-all duration-200 border border-white/10"
+                      className="text-gray-900 dark:text-gray-200 hover:text-white bg-black/30 hover:bg-black/40 rounded-full p-2 backdrop-blur-sm transition-all duration-200 border border-white/10"
                     >
                       ✕
                     </button>
@@ -385,7 +385,7 @@ const formatWhen = (iso) => {
                     <div className="inline-block px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-xs font-semibold text-white mb-3 border border-white/10">
                       Society Details
                     </div>
-                    <div className="text-3xl font-black text-slate-100 mb-2">{selectedSociety?.name}</div>
+                    <div className="text-3xl font-black text-gray-900 dark:text-gray-100 mb-2">{selectedSociety?.name}</div>
                     {selectedSociety?.description ? (
                       <div className="text-slate-300 text-base leading-relaxed">{selectedSociety.description}</div>
                     ) : (
@@ -396,14 +396,14 @@ const formatWhen = (iso) => {
 
                 <div className="p-8 space-y-6 max-h-[60vh] overflow-y-auto">
                   {(selectedSociety?.website || selectedSociety?.contact?.email || selectedSociety?.contact?.phone) ? (
-                    <div className="bg-gradient-to-br from-dark-900/90 to-dark-800/90 border border-dark-700/50 rounded-2xl p-5">
-                      <div className="text-slate-200 font-bold text-lg mb-3">Website & Contact</div>
+                    <div className="bg-gradient-to-br from-dark-900/90 to-dark-800/90 border border-gray-200 dark:border-dark-700/50 rounded-2xl p-5">
+                      <div className="text-gray-900 dark:text-gray-200 font-bold text-lg mb-3">Website & Contact</div>
 
                       <div className="space-y-3">
                         {selectedSociety?.website ? (
                           <button
                             onClick={() => safeOpen(selectedSociety.website)}
-                            className="w-full text-left px-4 py-3 bg-dark-800/80 hover:bg-dark-700/80 rounded-xl transition-all duration-300 flex items-center gap-3 border border-dark-600/30"
+                            className="w-full text-left px-4 py-3 bg-white dark:bg-dark-800/80 hover:bg-gray-100 dark:bg-dark-700/80 rounded-xl transition-all duration-300 flex items-center gap-3 border border-gray-300 dark:border-dark-600/30"
                           >
                             <span className="text-lg">🌐</span>
                             <span className="text-primary-300 font-medium">{selectedSociety.website}</span>
@@ -411,14 +411,14 @@ const formatWhen = (iso) => {
                         ) : null}
 
                         {selectedSociety?.contact?.email ? (
-                          <div className="px-4 py-3 bg-dark-800/80 rounded-xl flex items-center gap-3 border border-dark-600/30">
+                          <div className="px-4 py-3 bg-white dark:bg-dark-800/80 rounded-xl flex items-center gap-3 border border-gray-300 dark:border-dark-600/30">
                             <span className="text-lg">📧</span>
                             <span className="text-slate-300">{selectedSociety.contact.email}</span>
                           </div>
                         ) : null}
 
                         {selectedSociety?.contact?.phone ? (
-                          <div className="px-4 py-3 bg-dark-800/80 rounded-xl flex items-center gap-3 border border-dark-600/30">
+                          <div className="px-4 py-3 bg-white dark:bg-dark-800/80 rounded-xl flex items-center gap-3 border border-gray-300 dark:border-dark-600/30">
                             <span className="text-lg">📱</span>
                             <span className="text-slate-300">{selectedSociety.contact.phone}</span>
                           </div>
@@ -428,14 +428,14 @@ const formatWhen = (iso) => {
                   ) : null}
 
                   {selectedSocials.length ? (
-                    <div className="bg-gradient-to-br from-dark-900/90 to-dark-800/90 border border-dark-700/50 rounded-2xl p-5">
-                      <div className="text-slate-200 font-bold text-lg mb-3">Social Media</div>
+                    <div className="bg-gradient-to-br from-dark-900/90 to-dark-800/90 border border-gray-200 dark:border-dark-700/50 rounded-2xl p-5">
+                      <div className="text-gray-900 dark:text-gray-200 font-bold text-lg mb-3">Social Media</div>
                       <div className="flex flex-wrap gap-2">
                         {selectedSocials.map((si) => (
                           <button
                             key={si.label}
                             onClick={() => safeOpen(si.url)}
-                            className="text-sm px-4 py-2 rounded-full bg-dark-700/70 hover:bg-dark-600 text-slate-200 border border-dark-600/50 transition-all"
+                            className="text-sm px-4 py-2 rounded-full bg-gray-100 dark:bg-dark-700/70 hover:bg-gray-200 dark:bg-dark-600 text-gray-900 dark:text-gray-200 border border-gray-300 dark:border-dark-600/50 transition-all"
                           >
                             {si.label}
                           </button>
@@ -446,9 +446,9 @@ const formatWhen = (iso) => {
 
                   {selectedSociety?.nextEvent ? (
                     <div className="bg-gradient-to-br from-primary-500/20 to-cyan-500/20 border border-primary-500/30 rounded-2xl p-5">
-                      <div className="text-slate-200 font-bold text-lg mb-3">Upcoming Event</div>
-                      <div className="bg-dark-900/50 rounded-xl p-4 border border-dark-700/50">
-                        <div className="text-slate-100 font-bold text-lg mb-2">{selectedSociety?.nextEvent?.title}</div>
+                      <div className="text-gray-900 dark:text-gray-200 font-bold text-lg mb-3">Upcoming Event</div>
+                      <div className="bg-gray-50 dark:bg-dark-900/50 rounded-xl p-4 border border-gray-200 dark:border-dark-700/50">
+                        <div className="text-gray-900 dark:text-gray-100 font-bold text-lg mb-2">{selectedSociety?.nextEvent?.title}</div>
                         <div className="text-sm text-slate-400">{formatWhen(selectedSociety?.nextEvent?.scheduledAt)}</div>
                         {selectedSociety?.nextEvent?.venue ? (
                           <div className="text-sm text-slate-500 mt-1">Venue: {selectedSociety.nextEvent.venue}</div>
@@ -458,16 +458,16 @@ const formatWhen = (iso) => {
                   ) : null}
 
                   {Array.isArray(selectedSociety?.projects) && selectedSociety.projects.length ? (
-                    <div className="bg-gradient-to-br from-dark-900/90 to-dark-800/90 border border-dark-700/50 rounded-2xl p-5">
-                      <div className="text-slate-200 font-bold text-lg mb-3">Projects</div>
+                    <div className="bg-gradient-to-br from-dark-900/90 to-dark-800/90 border border-gray-200 dark:border-dark-700/50 rounded-2xl p-5">
+                      <div className="text-gray-900 dark:text-gray-200 font-bold text-lg mb-3">Projects</div>
                       <div className="space-y-3">
                         {selectedSociety.projects.slice(0, 5).map((p) => (
                           <div
                             key={p?._id}
-                            className="flex items-center justify-between gap-3 bg-dark-800/80 rounded-xl p-4 border border-dark-600/30"
+                            className="flex items-center justify-between gap-3 bg-white dark:bg-dark-800/80 rounded-xl p-4 border border-gray-300 dark:border-dark-600/30"
                           >
                             <div className="min-w-0 flex-1">
-                              <div className="text-slate-100 font-bold line-clamp-1">{p?.title}</div>
+                              <div className="text-gray-900 dark:text-gray-100 font-bold line-clamp-1">{p?.title}</div>
                               {p?.techStack ? (
                                 <div className="text-xs text-slate-500 line-clamp-1 mt-0.5">{p.techStack}</div>
                               ) : null}
@@ -475,7 +475,7 @@ const formatWhen = (iso) => {
                             {p?.link ? (
                               <button
                                 onClick={() => safeOpen(p.link)}
-                                className="shrink-0 px-4 py-2 rounded-xl bg-gradient-to-r from-primary-500 to-cyan-500 hover:from-primary-600 hover:to-cyan-600 text-white text-sm font-bold"
+                                className="shrink-0 px-4 py-2 rounded-xl bg-primary-600 hover:bg-primary-700 text-white text-sm font-bold"
                               >
                                 View
                               </button>
@@ -486,14 +486,14 @@ const formatWhen = (iso) => {
                     </div>
                   ) : null}
 
-                  <div className="bg-gradient-to-br from-dark-900/90 to-dark-800/90 border border-dark-700/50 rounded-2xl p-5 space-y-4">
+                  <div className="bg-gradient-to-br from-dark-900/90 to-dark-800/90 border border-gray-200 dark:border-dark-700/50 rounded-2xl p-5 space-y-4">
                     <div className="text-sm text-slate-400">Subscribe to get email updates for new events.</div>
                     <button
                       onClick={() => toggleSubscribe(selectedSociety?._id)}
                       className={`w-full py-4 rounded-xl text-base font-bold transition-all duration-300 shadow-lg ${
                         subscribedIds.has(String(selectedSociety?._id))
-                          ? "bg-gradient-to-r from-dark-700 to-dark-600 hover:from-dark-600 hover:to-dark-500 text-slate-200 border border-dark-600/50"
-                          : "bg-gradient-to-r from-primary-500 to-cyan-500 hover:from-primary-600 hover:to-cyan-600 text-white shadow-primary-500/50"
+                          ? "bg-primary-600 hover:bg-primary-700 text-gray-900 dark:text-gray-200 border border-gray-300 dark:border-dark-600/50"
+                          : "bg-primary-600 hover:bg-primary-700 text-white shadow-primary-500/50"
                       }`}
                     >
                       {subscribedIds.has(String(selectedSociety?._id)) ? "🔕 Unsubscribe" : "🔔 Subscribe"}
@@ -506,26 +506,26 @@ const formatWhen = (iso) => {
         </div>
       );
     };
-                    <div className="text-slate-200 font-bold text-lg">Contact Information</div>
+                    <div className="text-gray-900 dark:text-gray-200 font-bold text-lg">Contact Information</div>
                   </div>
                   <div className="space-y-3">
                     {selectedSociety?.website ? (
                       <button
                         onClick={() => safeOpen(selectedSociety.website)}
-                        className="w-full text-left px-4 py-3 bg-dark-800/80 hover:bg-dark-700/80 rounded-xl transition-all duration-300 flex items-center gap-3 border border-dark-600/30 group"
+                        className="w-full text-left px-4 py-3 bg-white dark:bg-dark-800/80 hover:bg-gray-100 dark:bg-dark-700/80 rounded-xl transition-all duration-300 flex items-center gap-3 border border-gray-300 dark:border-dark-600/30 group"
                       >
                         <span className="text-lg">🌐</span>
                         <span className="text-primary-300 group-hover:text-primary-200 font-medium">{selectedSociety.website}</span>
                       </button>
                     ) : null}
                     {selectedSociety?.contact?.email ? (
-                      <div className="px-4 py-3 bg-dark-800/80 rounded-xl flex items-center gap-3 border border-dark-600/30">
+                      <div className="px-4 py-3 bg-white dark:bg-dark-800/80 rounded-xl flex items-center gap-3 border border-gray-300 dark:border-dark-600/30">
                         <span className="text-lg">📧</span>
                         <span className="text-slate-300">{selectedSociety.contact.email}</span>
                       </div>
                     ) : null}
                     {selectedSociety?.contact?.phone ? (
-                      <div className="px-4 py-3 bg-dark-800/80 rounded-xl flex items-center gap-3 border border-dark-600/30">
+                      <div className="px-4 py-3 bg-white dark:bg-dark-800/80 rounded-xl flex items-center gap-3 border border-gray-300 dark:border-dark-600/30">
                         <span className="text-lg">📱</span>
                         <span className="text-slate-300">{selectedSociety.contact.phone}</span>
                       </div>
@@ -538,10 +538,10 @@ const formatWhen = (iso) => {
                 <div className="bg-gradient-to-br from-primary-500/20 to-cyan-500/20 border border-primary-500/30 rounded-2xl p-5 backdrop-blur-sm shadow-xl">
                   <div className="flex items-center gap-2 mb-3">
                     <span className="text-xl">📅</span>
-                    <div className="text-slate-200 font-bold text-lg">Upcoming Event</div>
+                    <div className="text-gray-900 dark:text-gray-200 font-bold text-lg">Upcoming Event</div>
                   </div>
-                  <div className="bg-dark-900/50 rounded-xl p-4 border border-dark-700/50">
-                    <div className="text-slate-100 font-bold text-lg mb-2">{selectedSociety.nextEvent.title}</div>
+                  <div className="bg-gray-50 dark:bg-dark-900/50 rounded-xl p-4 border border-gray-200 dark:border-dark-700/50">
+                    <div className="text-gray-900 dark:text-gray-100 font-bold text-lg mb-2">{selectedSociety.nextEvent.title}</div>
                     <div className="flex items-center gap-2 text-sm text-slate-400 mb-1">
                       <span>⏰</span>
                       <span>{formatWhen(selectedSociety.nextEvent.scheduledAt)}</span>
@@ -557,22 +557,22 @@ const formatWhen = (iso) => {
               ) : null}
 
               {Array.isArray(selectedSociety?.projects) && selectedSociety.projects.length ? (
-                <div className="bg-gradient-to-br from-dark-900/90 to-dark-800/90 border border-dark-700/50 rounded-2xl p-5 backdrop-blur-sm shadow-xl">
+                <div className="bg-gradient-to-br from-dark-900/90 to-dark-800/90 border border-gray-200 dark:border-dark-700/50 rounded-2xl p-5 backdrop-blur-sm shadow-xl">
                   <div className="flex items-center gap-2 mb-3">
                     <span className="text-xl">💡</span>
-                    <div className="text-slate-200 font-bold text-lg">Projects</div>
+                    <div className="text-gray-900 dark:text-gray-200 font-bold text-lg">Projects</div>
                   </div>
                   <div className="space-y-3">
                     {selectedSociety.projects.slice(0, 3).map((p) => (
-                      <div key={p?._id} className="flex items-center justify-between gap-3 bg-dark-800/80 rounded-xl p-4 border border-dark-600/30 hover:border-primary-500/30 transition-all duration-300">
+                      <div key={p?._id} className="flex items-center justify-between gap-3 bg-white dark:bg-dark-800/80 rounded-xl p-4 border border-gray-300 dark:border-dark-600/30 hover:border-primary-500/30 transition-all duration-300">
                         <div className="min-w-0 flex-1">
-                          <div className="text-slate-100 font-bold line-clamp-1 mb-1">{p?.title}</div>
+                          <div className="text-gray-900 dark:text-gray-100 font-bold line-clamp-1 mb-1">{p?.title}</div>
                           {p?.techStack ? <div className="text-xs text-slate-500 line-clamp-1">{p.techStack}</div> : null}
                         </div>
                         {p?.link ? (
                           <button
                             onClick={() => safeOpen(p.link)}
-                            className="shrink-0 px-4 py-2 rounded-xl bg-gradient-to-r from-primary-500 to-cyan-500 hover:from-primary-600 hover:to-cyan-600 text-white text-sm font-bold shadow-lg transition-all duration-300"
+                            className="shrink-0 px-4 py-2 rounded-xl bg-primary-600 hover:bg-primary-700 text-white text-sm font-bold shadow-lg transition-all duration-300"
                           >
                             View →
                           </button>
@@ -583,7 +583,7 @@ const formatWhen = (iso) => {
                 </div>
               ) : null}
 
-              <div className="bg-gradient-to-br from-dark-900/90 to-dark-800/90 border border-dark-700/50 rounded-2xl p-5 space-y-4">
+              <div className="bg-gradient-to-br from-dark-900/90 to-dark-800/90 border border-gray-200 dark:border-dark-700/50 rounded-2xl p-5 space-y-4">
                 <div className="flex items-center justify-between text-sm">
                   <div className="flex items-center gap-2 text-slate-400">
                     <span>📬</span>
@@ -597,8 +597,8 @@ const formatWhen = (iso) => {
                   onClick={() => toggleSubscribe(selectedSociety._id)}
                   className={`w-full py-4 rounded-xl text-base font-bold transition-all duration-300 shadow-lg transform hover:scale-105 ${
                     subscribedIds.has(String(selectedSociety._id))
-                      ? "bg-gradient-to-r from-dark-700 to-dark-600 hover:from-dark-600 hover:to-dark-500 text-slate-200 border border-dark-600/50"
-                      : "bg-gradient-to-r from-primary-500 to-cyan-500 hover:from-primary-600 hover:to-cyan-600 text-white shadow-primary-500/50"
+                      ? "bg-primary-600 hover:bg-primary-700 text-gray-900 dark:text-gray-200 border border-gray-300 dark:border-dark-600/50"
+                      : "bg-primary-600 hover:bg-primary-700 text-white shadow-primary-500/50"
                   }`}
                 >
                   {subscribedIds.has(String(selectedSociety._id)) ? "🔕 Unsubscribe" : "🔔 Subscribe for Updates"}
@@ -769,7 +769,7 @@ const Societies = () => {
 
   return (
     <div className="space-y-8">
-      <div className="relative overflow-hidden bg-gradient-to-br from-primary-600 via-primary-500 to-cyan-500 rounded-3xl p-10 text-white shadow-2xl">
+      <div className="relative overflow-hidden bg-primary-600 rounded-3xl p-10 text-white shadow-2xl">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full mix-blend-overlay filter blur-3xl animate-pulse" />
           <div
@@ -790,7 +790,7 @@ const Societies = () => {
           </div>
 
           <div className="bg-white/20 backdrop-blur-lg rounded-2xl p-6 text-center border border-white/30 shadow-xl">
-            <div className="text-5xl font-black bg-gradient-to-br from-white to-cyan-100 bg-clip-text text-transparent">
+            <div className="text-5xl font-black bg-primary-600 bg-clip-text text-transparent">
               {societies.length}
             </div>
             <div className="text-sm text-white/90 font-semibold mt-1">Active Societies</div>
@@ -798,9 +798,9 @@ const Societies = () => {
         </div>
       </div>
 
-      <div className="bg-gradient-to-br from-dark-800 to-dark-900 border border-dark-700/50 rounded-3xl overflow-hidden shadow-2xl backdrop-blur-sm">
-        <div className="p-6 border-b border-dark-700/50 bg-gradient-to-r from-primary-500/10 to-cyan-500/10">
-          <h2 className="text-2xl font-bold text-slate-100">All Societies</h2>
+      <div className="bg-primary-600 border border-gray-200 dark:border-dark-700/50 rounded-3xl overflow-hidden shadow-2xl backdrop-blur-sm">
+        <div className="p-6 border-b border-gray-200 dark:border-dark-700/50 bg-gradient-to-r from-primary-500/10 to-cyan-500/10">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100">All Societies</h2>
           <p className="text-slate-400 text-sm mt-1">Card shows cover + name + subscribe only</p>
         </div>
 
@@ -823,10 +823,10 @@ const Societies = () => {
                 <div
                   key={s?._id}
                   onClick={() => openSociety(s)}
-                  className="bg-gradient-to-br from-dark-900 to-dark-800 border border-dark-700/50 rounded-3xl overflow-hidden hover:border-primary-500/70 hover:shadow-2xl hover:shadow-primary-500/20 hover:-translate-y-1 transition-all duration-300 cursor-pointer"
+                  className="bg-primary-600 border border-gray-200 dark:border-dark-700/50 rounded-3xl overflow-hidden hover:border-primary-500/70 hover:shadow-2xl hover:shadow-primary-500/20 hover:-translate-y-1 transition-all duration-300 cursor-pointer"
                 >
                   <div
-                    className="relative h-44 w-full bg-dark-800"
+                    className="relative h-44 w-full bg-white dark:bg-dark-800"
                     style={
                       cover
                         ? {
@@ -845,7 +845,7 @@ const Societies = () => {
                   </div>
 
                   <div className="p-6 space-y-4">
-                    <div className="text-slate-100 text-xl font-black line-clamp-1">{s?.name}</div>
+                    <div className="text-gray-900 dark:text-gray-100 text-xl font-black line-clamp-1">{s?.name}</div>
 
                     <button
                       onClick={(e) => {
@@ -854,8 +854,8 @@ const Societies = () => {
                       }}
                       className={`w-full py-3 rounded-xl text-sm font-bold transition-all duration-300 shadow-lg transform hover:scale-[1.02] ${
                         isSubscribed
-                          ? "bg-gradient-to-r from-dark-700 to-dark-600 hover:from-dark-600 hover:to-dark-500 text-slate-200 border border-dark-600/50"
-                          : "bg-gradient-to-r from-primary-500 to-cyan-500 hover:from-primary-600 hover:to-cyan-600 text-white shadow-primary-500/50"
+                          ? "bg-primary-600 hover:bg-primary-700 text-gray-900 dark:text-gray-200 border border-gray-300 dark:border-dark-600/50"
+                          : "bg-primary-600 hover:bg-primary-700 text-white shadow-primary-500/50"
                       }`}
                     >
                       {isSubscribed ? "🔕 Unsubscribe" : "🔔 Subscribe"}
@@ -869,15 +869,15 @@ const Societies = () => {
       </div>
 
       {coordinatorSociety ? (
-        <div className="bg-gradient-to-br from-dark-800 to-dark-900 border border-dark-700/50 rounded-3xl overflow-hidden shadow-2xl">
-          <div className="p-6 border-b border-dark-700/50 bg-gradient-to-r from-primary-500/10 to-cyan-500/10">
+        <div className="bg-primary-600 border border-gray-200 dark:border-dark-700/50 rounded-3xl overflow-hidden shadow-2xl">
+          <div className="p-6 border-b border-gray-200 dark:border-dark-700/50 bg-gradient-to-r from-primary-500/10 to-cyan-500/10">
             <div className="flex items-center justify-between flex-wrap gap-4">
               <div className="flex items-center gap-3">
-                <div className="bg-gradient-to-br from-primary-500 to-cyan-500 rounded-2xl p-3 shadow-lg">
+                <div className="bg-primary-600 rounded-2xl p-3 shadow-lg">
                   <span className="text-2xl">👨‍💼</span>
                 </div>
                 <div>
-                  <div className="text-slate-200 font-bold text-lg">Coordinator Dashboard</div>
+                  <div className="text-gray-900 dark:text-gray-200 font-bold text-lg">Coordinator Dashboard</div>
                   <div className="text-sm text-slate-400">
                     Managing: <span className="text-primary-300 font-semibold">{coordinatorSociety?.name}</span>
                   </div>
@@ -888,8 +888,8 @@ const Societies = () => {
                   onClick={() => setCoordinatorTab("events")}
                   className={`px-4 py-2 rounded-xl text-sm font-bold transition-all duration-300 ${
                     coordinatorTab === "events"
-                      ? "bg-gradient-to-r from-primary-500 to-cyan-500 text-white shadow-lg shadow-primary-500/50"
-                      : "bg-dark-700/80 hover:bg-dark-600 text-slate-200 border border-dark-600/50"
+                      ? "bg-primary-600 text-white shadow-lg shadow-primary-500/50"
+                      : "bg-gray-100 dark:bg-dark-700/80 hover:bg-gray-200 dark:bg-dark-600 text-gray-900 dark:text-gray-200 border border-gray-300 dark:border-dark-600/50"
                   }`}
                 >
                   📅 Events
@@ -898,8 +898,8 @@ const Societies = () => {
                   onClick={() => setCoordinatorTab("achievements")}
                   className={`px-4 py-2 rounded-xl text-sm font-bold transition-all duration-300 ${
                     coordinatorTab === "achievements"
-                      ? "bg-gradient-to-r from-primary-500 to-cyan-500 text-white shadow-lg shadow-primary-500/50"
-                      : "bg-dark-700/80 hover:bg-dark-600 text-slate-200 border border-dark-600/50"
+                      ? "bg-primary-600 text-white shadow-lg shadow-primary-500/50"
+                      : "bg-gray-100 dark:bg-dark-700/80 hover:bg-gray-200 dark:bg-dark-600 text-gray-900 dark:text-gray-200 border border-gray-300 dark:border-dark-600/50"
                   }`}
                 >
                   🏆 Achievements
@@ -908,8 +908,8 @@ const Societies = () => {
                   onClick={() => setCoordinatorTab("projects")}
                   className={`px-4 py-2 rounded-xl text-sm font-bold transition-all duration-300 ${
                     coordinatorTab === "projects"
-                      ? "bg-gradient-to-r from-primary-500 to-cyan-500 text-white shadow-lg shadow-primary-500/50"
-                      : "bg-dark-700/80 hover:bg-dark-600 text-slate-200 border border-dark-600/50"
+                      ? "bg-primary-600 text-white shadow-lg shadow-primary-500/50"
+                      : "bg-gray-100 dark:bg-dark-700/80 hover:bg-gray-200 dark:bg-dark-600 text-gray-900 dark:text-gray-200 border border-gray-300 dark:border-dark-600/50"
                   }`}
                 >
                   💡 Projects
@@ -938,14 +938,14 @@ const Societies = () => {
           onClick={closeModal}
         >
           <div
-            className={`bg-gradient-to-br from-dark-800 to-dark-900 border border-dark-700/50 rounded-3xl w-full max-w-3xl overflow-hidden shadow-2xl transition-all duration-300 ${
+            className={`bg-primary-600 border border-gray-200 dark:border-dark-700/50 rounded-3xl w-full max-w-3xl overflow-hidden shadow-2xl transition-all duration-300 ${
               isModalOpen ? "scale-100 opacity-100" : "scale-90 opacity-0"
             }`}
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="relative border-b border-dark-700/50 overflow-hidden">
+            <div className="relative border-b border-gray-200 dark:border-dark-700/50 overflow-hidden">
               <div
-                className="h-48 bg-dark-800"
+                className="h-48 bg-white dark:bg-dark-800"
                 style={
                   selectedSociety?.coverImageUrl
                     ? {
@@ -966,7 +966,7 @@ const Societies = () => {
               <div className="absolute top-4 right-4">
                 <button
                   onClick={closeModal}
-                  className="text-slate-200 hover:text-white bg-black/30 hover:bg-black/40 rounded-full p-2 backdrop-blur-sm transition-all duration-200 border border-white/10"
+                  className="text-gray-900 dark:text-gray-200 hover:text-white bg-black/30 hover:bg-black/40 rounded-full p-2 backdrop-blur-sm transition-all duration-200 border border-white/10"
                 >
                   ✕
                 </button>
@@ -976,7 +976,7 @@ const Societies = () => {
                 <div className="inline-block px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-xs font-semibold text-white mb-3 border border-white/10">
                   Society Details
                 </div>
-                <div className="text-3xl font-black text-slate-100 mb-2">{selectedSociety?.name}</div>
+                <div className="text-3xl font-black text-gray-900 dark:text-gray-100 mb-2">{selectedSociety?.name}</div>
                 {selectedSociety?.description ? (
                   <div className="text-slate-300 text-base leading-relaxed">{selectedSociety.description}</div>
                 ) : (
@@ -987,26 +987,26 @@ const Societies = () => {
 
             <div className="p-8 space-y-6 max-h-[60vh] overflow-y-auto">
               {(selectedSociety?.website || selectedSociety?.contact?.email || selectedSociety?.contact?.phone) ? (
-                <div className="bg-gradient-to-br from-dark-900/90 to-dark-800/90 border border-dark-700/50 rounded-2xl p-5">
-                  <div className="text-slate-200 font-bold text-lg mb-3">Website & Contact</div>
+                <div className="bg-gradient-to-br from-dark-900/90 to-dark-800/90 border border-gray-200 dark:border-dark-700/50 rounded-2xl p-5">
+                  <div className="text-gray-900 dark:text-gray-200 font-bold text-lg mb-3">Website & Contact</div>
                   <div className="space-y-3">
                     {selectedSociety?.website ? (
                       <button
                         onClick={() => safeOpen(selectedSociety.website)}
-                        className="w-full text-left px-4 py-3 bg-dark-800/80 hover:bg-dark-700/80 rounded-xl transition-all duration-300 flex items-center gap-3 border border-dark-600/30"
+                        className="w-full text-left px-4 py-3 bg-white dark:bg-dark-800/80 hover:bg-gray-100 dark:bg-dark-700/80 rounded-xl transition-all duration-300 flex items-center gap-3 border border-gray-300 dark:border-dark-600/30"
                       >
                         <span className="text-lg">🌐</span>
                         <span className="text-primary-300 font-medium">{selectedSociety.website}</span>
                       </button>
                     ) : null}
                     {selectedSociety?.contact?.email ? (
-                      <div className="px-4 py-3 bg-dark-800/80 rounded-xl flex items-center gap-3 border border-dark-600/30">
+                      <div className="px-4 py-3 bg-white dark:bg-dark-800/80 rounded-xl flex items-center gap-3 border border-gray-300 dark:border-dark-600/30">
                         <span className="text-lg">📧</span>
                         <span className="text-slate-300">{selectedSociety.contact.email}</span>
                       </div>
                     ) : null}
                     {selectedSociety?.contact?.phone ? (
-                      <div className="px-4 py-3 bg-dark-800/80 rounded-xl flex items-center gap-3 border border-dark-600/30">
+                      <div className="px-4 py-3 bg-white dark:bg-dark-800/80 rounded-xl flex items-center gap-3 border border-gray-300 dark:border-dark-600/30">
                         <span className="text-lg">📱</span>
                         <span className="text-slate-300">{selectedSociety.contact.phone}</span>
                       </div>
@@ -1016,14 +1016,14 @@ const Societies = () => {
               ) : null}
 
               {selectedSocials.length ? (
-                <div className="bg-gradient-to-br from-dark-900/90 to-dark-800/90 border border-dark-700/50 rounded-2xl p-5">
-                  <div className="text-slate-200 font-bold text-lg mb-3">Social Media</div>
+                <div className="bg-gradient-to-br from-dark-900/90 to-dark-800/90 border border-gray-200 dark:border-dark-700/50 rounded-2xl p-5">
+                  <div className="text-gray-900 dark:text-gray-200 font-bold text-lg mb-3">Social Media</div>
                   <div className="flex flex-wrap gap-2">
                     {selectedSocials.map((si) => (
                       <button
                         key={si.label}
                         onClick={() => safeOpen(si.url)}
-                        className="text-sm px-4 py-2 rounded-full bg-dark-700/70 hover:bg-dark-600 text-slate-200 border border-dark-600/50 transition-all"
+                        className="text-sm px-4 py-2 rounded-full bg-gray-100 dark:bg-dark-700/70 hover:bg-gray-200 dark:bg-dark-600 text-gray-900 dark:text-gray-200 border border-gray-300 dark:border-dark-600/50 transition-all"
                       >
                         {si.label}
                       </button>
@@ -1034,9 +1034,9 @@ const Societies = () => {
 
               {selectedSociety?.nextEvent ? (
                 <div className="bg-gradient-to-br from-primary-500/20 to-cyan-500/20 border border-primary-500/30 rounded-2xl p-5">
-                  <div className="text-slate-200 font-bold text-lg mb-3">Upcoming Event</div>
-                  <div className="bg-dark-900/50 rounded-xl p-4 border border-dark-700/50">
-                    <div className="text-slate-100 font-bold text-lg mb-2">{selectedSociety?.nextEvent?.title}</div>
+                  <div className="text-gray-900 dark:text-gray-200 font-bold text-lg mb-3">Upcoming Event</div>
+                  <div className="bg-gray-50 dark:bg-dark-900/50 rounded-xl p-4 border border-gray-200 dark:border-dark-700/50">
+                    <div className="text-gray-900 dark:text-gray-100 font-bold text-lg mb-2">{selectedSociety?.nextEvent?.title}</div>
                     <div className="text-sm text-slate-400">{formatWhen(selectedSociety?.nextEvent?.scheduledAt)}</div>
                     {selectedSociety?.nextEvent?.venue ? (
                       <div className="text-sm text-slate-500 mt-1">Venue: {selectedSociety.nextEvent.venue}</div>
@@ -1046,16 +1046,16 @@ const Societies = () => {
               ) : null}
 
               {Array.isArray(selectedSociety?.projects) && selectedSociety.projects.length ? (
-                <div className="bg-gradient-to-br from-dark-900/90 to-dark-800/90 border border-dark-700/50 rounded-2xl p-5">
-                  <div className="text-slate-200 font-bold text-lg mb-3">Projects</div>
+                <div className="bg-gradient-to-br from-dark-900/90 to-dark-800/90 border border-gray-200 dark:border-dark-700/50 rounded-2xl p-5">
+                  <div className="text-gray-900 dark:text-gray-200 font-bold text-lg mb-3">Projects</div>
                   <div className="space-y-3">
                     {selectedSociety.projects.slice(0, 5).map((p) => (
                       <div
                         key={p?._id}
-                        className="flex items-center justify-between gap-3 bg-dark-800/80 rounded-xl p-4 border border-dark-600/30"
+                        className="flex items-center justify-between gap-3 bg-white dark:bg-dark-800/80 rounded-xl p-4 border border-gray-300 dark:border-dark-600/30"
                       >
                         <div className="min-w-0 flex-1">
-                          <div className="text-slate-100 font-bold line-clamp-1">{p?.title}</div>
+                          <div className="text-gray-900 dark:text-gray-100 font-bold line-clamp-1">{p?.title}</div>
                           {p?.techStack ? (
                             <div className="text-xs text-slate-500 line-clamp-1 mt-0.5">{p.techStack}</div>
                           ) : null}
@@ -1063,7 +1063,7 @@ const Societies = () => {
                         {p?.link ? (
                           <button
                             onClick={() => safeOpen(p.link)}
-                            className="shrink-0 px-4 py-2 rounded-xl bg-gradient-to-r from-primary-500 to-cyan-500 hover:from-primary-600 hover:to-cyan-600 text-white text-sm font-bold"
+                            className="shrink-0 px-4 py-2 rounded-xl bg-primary-600 hover:bg-primary-700 text-white text-sm font-bold"
                           >
                             View
                           </button>
@@ -1074,14 +1074,14 @@ const Societies = () => {
                 </div>
               ) : null}
 
-              <div className="bg-gradient-to-br from-dark-900/90 to-dark-800/90 border border-dark-700/50 rounded-2xl p-5 space-y-4">
+              <div className="bg-gradient-to-br from-dark-900/90 to-dark-800/90 border border-gray-200 dark:border-dark-700/50 rounded-2xl p-5 space-y-4">
                 <div className="text-sm text-slate-400">Subscribe to get email updates for new events.</div>
                 <button
                   onClick={() => toggleSubscribe(selectedSociety?._id)}
                   className={`w-full py-4 rounded-xl text-base font-bold transition-all duration-300 shadow-lg ${
                     subscribedIds.has(String(selectedSociety?._id))
-                      ? "bg-gradient-to-r from-dark-700 to-dark-600 hover:from-dark-600 hover:to-dark-500 text-slate-200 border border-dark-600/50"
-                      : "bg-gradient-to-r from-primary-500 to-cyan-500 hover:from-primary-600 hover:to-cyan-600 text-white shadow-primary-500/50"
+                      ? "bg-primary-600 hover:bg-primary-700 text-gray-900 dark:text-gray-200 border border-gray-300 dark:border-dark-600/50"
+                      : "bg-primary-600 hover:bg-primary-700 text-white shadow-primary-500/50"
                   }`}
                 >
                   {subscribedIds.has(String(selectedSociety?._id)) ? "🔕 Unsubscribe" : "🔔 Subscribe"}

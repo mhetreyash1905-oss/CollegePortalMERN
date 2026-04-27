@@ -218,7 +218,7 @@ const Subject = () => {
               No subjects found
             </div>
           ) : (
-            <div className="bg-dark-800 rounded-2xl shadow-md overflow-hidden border border-dark-700">
+            <div className="bg-white dark:bg-dark-800 rounded-2xl shadow-md overflow-hidden border border-gray-200 dark:border-dark-700">
             <table className="text-sm min-w-full">
               <thead>
                 <tr className="bg-primary-500 text-white">
@@ -237,7 +237,7 @@ const Subject = () => {
               <tbody>
                 {subject &&
                   subject.map((item, index) => (
-                    <tr key={index} className="border-b border-dark-700 hover:bg-dark-700 text-slate-200">
+                    <tr key={index} className="border-b border-gray-200 dark:border-dark-700 hover:bg-gray-100 dark:bg-dark-700 text-gray-900 dark:text-gray-200">
                       <td className="py-4 px-6">{item.name}</td>
                       <td className="py-4 px-6">{item.code}</td>
                       <td className="py-4 px-6">{item.branch?.name}</td>
@@ -271,9 +271,9 @@ const Subject = () => {
       {/* Add/Edit Subject Modal */}
       {showModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4">
-          <div className="bg-dark-800 rounded-lg p-6 max-w-2xl w-full border border-dark-700">
+          <div className="bg-white dark:bg-dark-800 rounded-lg p-6 max-w-2xl w-full border border-gray-200 dark:border-dark-700">
             <div className="flex justify-between items-center mb-4">
-              <h2 className="text-xl font-semibold text-slate-100">
+              <h2 className="text-xl font-semibold text-gray-900 dark:text-gray-100">
                 {isEditing ? "Edit Subject" : "Add New Subject"}
               </h2>
               <CustomButton onClick={resetForm} variant="secondary">
@@ -283,39 +283,39 @@ const Subject = () => {
 
             <div className="space-y-4">
               <div>
-                <label className="block text-sm font-medium text-slate-200 mb-1">
+                <label className="block text-sm font-medium text-gray-900 dark:text-gray-200 mb-1">
                   Subject Name
                 </label>
                 <input
                   type="text"
                   value={data.name}
                   onChange={(e) => setData({ ...data, name: e.target.value })}
-                  className="w-full px-4 py-2 border-2 border-dark-600 rounded-md bg-dark-700 text-slate-200 focus:outline-none focus:ring-2 focus:ring-primary-500"
+                  className="w-full px-4 py-2 border-2 border-gray-300 dark:border-dark-600 rounded-md bg-gray-100 dark:bg-dark-700 text-gray-900 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500"
                   required
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-slate-200 mb-1">
+                <label className="block text-sm font-medium text-gray-900 dark:text-gray-200 mb-1">
                   Subject Code
                 </label>
                 <input
                   type="text"
                   value={data.code}
                   onChange={(e) => setData({ ...data, code: e.target.value })}
-                  className="w-full px-4 py-2 border-2 border-dark-600 rounded-md bg-dark-700 text-slate-200 focus:outline-none focus:ring-2 focus:ring-primary-500"
+                  className="w-full px-4 py-2 border-2 border-gray-300 dark:border-dark-600 rounded-md bg-gray-100 dark:bg-dark-700 text-gray-900 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500"
                   required
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-slate-200 mb-1">
+                <label className="block text-sm font-medium text-gray-900 dark:text-gray-200 mb-1">
                   Branch
                 </label>
                 <select
                   value={data.branch}
                   onChange={(e) => setData({ ...data, branch: e.target.value })}
-                  className="w-full px-4 py-2 border-2 border-dark-600 rounded-md bg-dark-700 text-slate-200 focus:outline-none focus:ring-2 focus:ring-primary-500"
+                  className="w-full px-4 py-2 border-2 border-gray-300 dark:border-dark-600 rounded-md bg-gray-100 dark:bg-dark-700 text-gray-900 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500"
                   required
                 >
                   <option value="">Select Branch</option>
@@ -328,7 +328,7 @@ const Subject = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-slate-200 mb-1">
+                <label className="block text-sm font-medium text-gray-900 dark:text-gray-200 mb-1">
                   Semester
                 </label>
                 <select
@@ -336,7 +336,7 @@ const Subject = () => {
                   onChange={(e) =>
                     setData({ ...data, semester: e.target.value })
                   }
-                  className="w-full px-4 py-2 border-2 border-dark-600 rounded-md bg-dark-700 text-slate-200 focus:outline-none focus:ring-2 focus:ring-primary-500"
+                  className="w-full px-4 py-2 border-2 border-gray-300 dark:border-dark-600 rounded-md bg-gray-100 dark:bg-dark-700 text-gray-900 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500"
                   required
                 >
                   <option value="">Select Semester</option>
@@ -349,7 +349,7 @@ const Subject = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-slate-200 mb-1">
+                <label className="block text-sm font-medium text-gray-900 dark:text-gray-200 mb-1">
                   Credits
                 </label>
                 <input
@@ -358,7 +358,7 @@ const Subject = () => {
                   onChange={(e) =>
                     setData({ ...data, credits: e.target.value })
                   }
-                  className="w-full px-4 py-2 border-2 border-dark-600 rounded-md bg-dark-700 text-slate-200 focus:outline-none focus:ring-2 focus:ring-primary-500"
+                  className="w-full px-4 py-2 border-2 border-gray-300 dark:border-dark-600 rounded-md bg-gray-100 dark:bg-dark-700 text-gray-900 dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-primary-500"
                   required
                 />
               </div>

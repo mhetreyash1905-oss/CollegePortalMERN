@@ -1,12 +1,14 @@
 import React from "react";
-import { FiLogOut } from "react-icons/fi";
+import { FiLogOut, FiSun, FiMoon } from "react-icons/fi";
 import { useLocation, useNavigate } from "react-router-dom";
 import { RxDashboard } from "react-icons/rx";
 import CustomButton from "./CustomButton";
+import { useTheme } from "../Context/ThemeContext";
 
 const Navbar = () => {
   const router = useLocation();
   const navigate = useNavigate();
+  const { theme, toggleTheme } = useTheme();
 
   const logouthandler = () => {
     localStorage.removeItem("userToken");
@@ -26,15 +28,24 @@ const Navbar = () => {
           </span>
           {router.state && router.state.type} Dashboard
         </p>
-        <button 
-          onClick={logouthandler}
-          className="bg-gradient-to-r from-red-500 to-pink-500 hover:from-red-600 hover:to-pink-600 text-white font-semibold py-2.5 px-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 flex items-center gap-2"
-        >
-          Logout
-          <span className="text-lg">
-            <FiLogOut />
-          </span>
-        </button>
+        <div className="flex items-center gap-4">
+          <button
+            onClick={toggleTheme}
+            className="p-2.5 rounded-xl bg-white dark:bg-dark-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-dark-700 shadow-sm hover:shadow transition-all duration-300 transform hover:scale-105 border border-gray-200 dark:border-dark-700"
+            aria-label="Toggle Theme"
+          >
+            {theme === "dark" ? <FiSun className="text-xl" /> : <FiMoon className="text-xl" />}
+          </button>
+          <button 
+            onClick={logouthandler}
+            className="bg-red-500 hover:bg-red-600 text-white font-semibold py-2.5 px-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 flex items-center gap-2"
+          >
+            Logout
+            <span className="text-lg">
+              <FiLogOut />
+            </span>
+          </button>
+        </div>
       </div>
     </div>
   );

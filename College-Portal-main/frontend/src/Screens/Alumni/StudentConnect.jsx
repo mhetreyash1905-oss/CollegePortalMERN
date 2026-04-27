@@ -69,21 +69,21 @@ const ChatWindow = ({ student, onClose }) => {
 
   return (
     <div className="fixed inset-0 z-50 bg-black/60 flex items-center justify-center p-4">
-      <div className="w-full max-w-2xl bg-dark-800 border border-dark-700 rounded-2xl overflow-hidden">
-        <div className="flex items-center justify-between px-5 py-4 border-b border-dark-700">
-          <div className="text-slate-200 font-semibold">
+      <div className="w-full max-w-2xl bg-white dark:bg-dark-800 border border-gray-200 dark:border-dark-700 rounded-2xl overflow-hidden">
+        <div className="flex items-center justify-between px-5 py-4 border-b border-gray-200 dark:border-dark-700">
+          <div className="text-gray-900 dark:text-gray-200 font-semibold">
             Chat with {student.firstName} {student.lastName}
           </div>
-          <button onClick={onClose} className="text-slate-400 hover:text-slate-200">✕</button>
+          <button onClick={onClose} className="text-slate-400 hover:text-gray-900 dark:text-gray-200">✕</button>
         </div>
 
-        <div className="h-[420px] overflow-y-auto p-4 space-y-3 bg-dark-900">
+        <div className="h-[420px] overflow-y-auto p-4 space-y-3 bg-gray-50 dark:bg-dark-900">
           {messages.map((m, idx) => {
             const senderRole = renderSender(m);
             const isMine = senderRole === "alumni";
             return (
               <div key={m._id || idx} className={`flex ${isMine ? "justify-end" : "justify-start"}`}>
-                <div className={`max-w-[75%] px-4 py-2 rounded-2xl text-sm ${isMine ? "bg-primary-500 text-white" : "bg-dark-700 text-slate-200"}`}>
+                <div className={`max-w-[75%] px-4 py-2 rounded-2xl text-sm ${isMine ? "bg-primary-500 text-white" : "bg-gray-100 dark:bg-dark-700 text-gray-900 dark:text-gray-200"}`}>
                   {renderText(m)}
                 </div>
               </div>
@@ -91,9 +91,9 @@ const ChatWindow = ({ student, onClose }) => {
           })}
         </div>
 
-        <form onSubmit={handleSend} className="flex gap-2 p-4 border-t border-dark-700 bg-dark-800">
+        <form onSubmit={handleSend} className="flex gap-2 p-4 border-t border-gray-200 dark:border-dark-700 bg-white dark:bg-dark-800">
           <input
-            className="flex-1 px-4 py-2 rounded-xl bg-dark-700 border border-dark-600 text-white outline-none"
+            className="flex-1 px-4 py-2 rounded-xl bg-gray-100 dark:bg-dark-700 border border-gray-300 dark:border-dark-600 text-white outline-none"
             placeholder="Type your message..."
             value={message}
             onChange={(e) => setMessage(e.target.value)}
@@ -143,10 +143,10 @@ const StudentConnect = () => {
             <button
               key={c._id}
               onClick={() => setSelectedStudent(c.partner)}
-              className="w-full text-left p-4 rounded-2xl bg-dark-800 border border-dark-700 hover:border-dark-600"
+              className="w-full text-left p-4 rounded-2xl bg-white dark:bg-dark-800 border border-gray-200 dark:border-dark-700 hover:border-gray-300 dark:border-dark-600"
             >
               <div className="flex items-center justify-between">
-                <div className="text-slate-200 font-semibold">
+                <div className="text-gray-900 dark:text-gray-200 font-semibold">
                   {c.partner?.firstName} {c.partner?.lastName}
                 </div>
                 <div className="text-xs text-slate-500">

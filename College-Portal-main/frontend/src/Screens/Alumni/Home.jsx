@@ -30,7 +30,7 @@ const Home = () => {
   const MenuItem = MENU_ITEMS.find((i) => i.id === selectedMenu)?.component;
 
   return (
-    <div className="flex min-h-screen bg-dark-900">
+    <div className="flex min-h-screen bg-gray-50 dark:bg-dark-900">
       <Sidebar
         menuItems={MENU_ITEMS}
         selectedMenu={selectedMenu}
