@@ -10,10 +10,6 @@ to run the project
 2. backend -> npm run dev (http://localhost:5000)   
 
 
-add theme switch
-fix ui/ux
-
-
 
 #	Name	Email	Password
 1	Riya Mehta	riya.mehta@student.college.edu	student123
@@ -32,3 +28,12 @@ fix ui/ux
 #	Name	Email	Password
 1	Priya Shah	priya.shah@college.edu	faculty123
 2	Amit Patel	amit.patel@college.edu	faculty123
+
+admin@college.edu
+admin123
+
+
+
+
+
+AI assistant removed

@@ -352,6 +352,31 @@ const updateLoggedInPasswordController = async (req, res) => {
   }
 };
 
+const updateMyPhotoController = async (req, res) => {
+  try {
+    if (!req.file) {
+      return ApiResponse.badRequest("Profile image is required").send(res);
+    }
+
+    const updatedUser = await adminDetails
+      .findByIdAndUpdate(
+        req.userId,
+        { profile: req.file.filename },
+        { new: true }
+      )
+      .select("-password -__v");
+
+    if (!updatedUser) {
+      return ApiResponse.notFound("User not found").send(res);
+    }
+
+    return ApiResponse.success(updatedUser, "Profile photo updated!").send(res);
+  } catch (error) {
+    console.error("Update Photo Error: ", error);
+    return ApiResponse.internalServerError().send(res);
+  }
+};
+
 module.exports = {
   loginAdminController,
   getAllDetailsController,
@@ -362,4 +387,5 @@ module.exports = {
   sendForgetPasswordEmail,
   updatePasswordHandler,
   updateLoggedInPasswordController,
+  updateMyPhotoController,
 };

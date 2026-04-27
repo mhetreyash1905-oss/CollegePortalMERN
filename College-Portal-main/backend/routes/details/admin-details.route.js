@@ -10,6 +10,7 @@ const {
   sendForgetPasswordEmail,
   updatePasswordHandler,
   updateLoggedInPasswordController,
+  updateMyPhotoController,
 } = require("../../controllers/details/admin-details.controller");
 const upload = require("../../middlewares/multer.middleware");
 const auth = require("../../middlewares/auth.middleware");
@@ -38,6 +39,7 @@ router.delete("/:id", auth, deleteDetailsController);
 router.post("/forget-password", sendForgetPasswordEmail);
 router.post("/update-password/:resetId", updatePasswordHandler);
 router.post("/change-password", auth, updateLoggedInPasswordController);
+router.patch("/update-my-photo", auth, upload.single("file"), updateMyPhotoController);
 
 // Alumni management (Admin only)
 router.get("/alumni", auth, requireAdmin, listAlumniController);

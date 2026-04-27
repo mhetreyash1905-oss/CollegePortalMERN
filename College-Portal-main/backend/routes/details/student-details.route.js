@@ -11,6 +11,7 @@ const {
   updatePasswordHandler,
   searchStudentsController,
   updateLoggedInPasswordController,
+  updateMyPhotoController,
 } = require("../../controllers/details/student-details.controller");
 const { getUserController } = require("../../controllers/getUsercontroller");
 const upload = require("../../middlewares/multer.middleware");
@@ -41,6 +42,7 @@ router.delete("/:id", auth, deleteDetailsController);
 router.post("/forget-password", sendForgetPasswordEmail);
 router.post("/update-password/:resetId", updatePasswordHandler);
 router.post("/change-password", auth, updateLoggedInPasswordController);
+router.patch("/update-my-photo", auth, upload.single("file"), updateMyPhotoController);
 router.post("/search", auth, searchStudentsController);
 
 module.exports = router;

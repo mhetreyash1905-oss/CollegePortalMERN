@@ -17,7 +17,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import Sidebar from "../../components/Sidebar";
 import TopBar from "../../components/TopBar";
 import StatCard from "../../components/StatCard";
-import AIAssistant from "../../components/AIAssistant";
+
 
 const MENU_ITEMS = [
   { id: "home", label: "Home", component: null },
@@ -162,7 +162,7 @@ const Home = () => {
       </div>
       
       <Toaster position="bottom-center" />
-      <AIAssistant />
+
     </div>
   );
 };

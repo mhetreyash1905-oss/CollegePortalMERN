@@ -98,7 +98,7 @@ app.use("/api/timetable", require("./routes/timetable.route"));
 app.use("/api/material", require("./routes/material.route"));
 app.use("/api/exam", require("./routes/exam.route"));
 app.use("/api/marks", require("./routes/marks.route"));
-app.use("/api/ai", require("./routes/ai.route"));
+
 
 // Global error-handling middleware (must be after all routes)
 app.use((err, req, res, next) => {
