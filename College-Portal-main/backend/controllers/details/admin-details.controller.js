@@ -61,6 +61,10 @@ const registerAdminController = async (req, res, next) => {
   try {
     const { email, phone } = req.body;
 
+    if (!req.file) {
+      return ApiResponse.badRequest("Profile image is required").send(res);
+    }
+
     const profile = req.file.filename;
 
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {

@@ -44,6 +44,9 @@ const updateExamController = async (req, res) => {
     const exam = await Exam.findByIdAndUpdate(req.params.id, formData, {
       new: true,
     });
+    if (!exam) {
+      return ApiResponse.error("Exam Not Found!", 404).send(res);
+    }
     return ApiResponse.success(exam, "Exam Updated Successfully!").send(res);
   } catch (error) {
     return ApiResponse.error(error.message).send(res);
@@ -53,7 +56,10 @@ const updateExamController = async (req, res) => {
 const deleteExamController = async (req, res) => {
   try {
     const exam = await Exam.findByIdAndDelete(req.params.id);
-    return ApiResponse.success(exam, "Exam Deleted Successfully!").send(res);
+    if (!exam) {
+      return ApiResponse.error("Exam Not Found!", 404).send(res);
+    }
+    return ApiResponse.success(null, "Exam Deleted Successfully!").send(res);
   } catch (error) {
     return ApiResponse.error(error.message).send(res);
   }

@@ -76,6 +76,7 @@ app.use(
 
 app.use(cookieParser()); // Parse cookies
 app.use(express.json()); //to convert request data to json
+app.use(express.urlencoded({ extended: true })); // Parse URL-encoded form data
 
 app.get("/", (req, res) => {
   res.send("Hello 👋 I am Working Fine 🚀");
@@ -98,6 +99,16 @@ app.use("/api/material", require("./routes/material.route"));
 app.use("/api/exam", require("./routes/exam.route"));
 app.use("/api/marks", require("./routes/marks.route"));
 app.use("/api/ai", require("./routes/ai.route"));
+
+// Global error-handling middleware (must be after all routes)
+app.use((err, req, res, next) => {
+  console.error("Unhandled Error:", err);
+  const statusCode = err.statusCode || 500;
+  const message = process.env.NODE_ENV === "production"
+    ? "Internal server error"
+    : err.message || "Internal server error";
+  res.status(statusCode).json({ success: false, message });
+});
 
 const server = http.createServer(app);
 

@@ -60,6 +60,10 @@ const getAllDetailsController = async (req, res) => {
 
 const registerStudentController = async (req, res) => {
   try {
+    if (!req.file) {
+      return ApiResponse.badRequest("Profile image is required").send(res);
+    }
+
     const profile = req.file.filename;
 
     const enrollmentNo = Math.floor(100000 + Math.random() * 900000);

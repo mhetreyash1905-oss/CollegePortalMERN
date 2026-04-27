@@ -1,5 +1,11 @@
 require("dotenv").config();
+const dns = require("dns");
 const mongoose = require("mongoose");
+
+// Use Google public DNS to resolve SRV records reliably on networks
+// where the default DNS resolver blocks or drops SRV queries.
+dns.setServers(["8.8.8.8", "8.8.4.4"]);
+
 const mongoURI = process.env.MONGODB_URI || process.env.MONGO_URI;
 
 const connectToMongo = () => {

@@ -4,6 +4,15 @@ const chatWithAI = async (req, res) => {
   try {
     const { prompt, history } = req.body;
     const apiKey = process.env.GEMINI_API_KEY;
+
+    if (!apiKey) {
+      return res.status(503).json({ success: false, message: "AI service is not configured (GEMINI_API_KEY missing)" });
+    }
+
+    if (!prompt || !String(prompt).trim()) {
+      return res.status(400).json({ success: false, message: "Prompt is required" });
+    }
+
     const model = process.env.GEMINI_MODEL || "gemini-3-flash-preview";
 
     const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;

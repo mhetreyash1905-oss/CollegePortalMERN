@@ -139,6 +139,6 @@ const MarkItemClaimed = async (req, res) => {
 module.exports = {
     ReportLostItem,
     GetLostItems,
-        ClaimLostItem,
-        MarkItemClaimed,
+    ClaimLostItem,
+    MarkItemClaimed,
 };
