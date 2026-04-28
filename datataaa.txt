@@ -6,8 +6,8 @@ to run the project
     5 npm run dev 
 
 
-1. frontend -> npm start (http://localhost:3001)
-2. backend -> npm run dev (http://localhost:5000)   
+1. frontend -> npm start (http://localhost:3000)
+2. backend -> npm run dev (http://localhost:4000)   
 
 
 
